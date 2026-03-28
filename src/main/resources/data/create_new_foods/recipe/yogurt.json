@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    { "tag": "create_new_foods:milk" },
+    "minecraft:glass_bottle",
+    "minecraft:bone_meal",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_new_foods:yogurt"
+  }
+}
