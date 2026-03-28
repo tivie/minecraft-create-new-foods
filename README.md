@@ -1,11 +1,18 @@
 # Create: New Foods
 
-A Fabric mod that bridges **Create Fly** and food mods, adding new fluids, crops, food items, and Create-compatible recipes.
+![banner](docs/assets/create_new_foods_banner.png)
 
-**Dependencies:** Create Fly · Fabric API
+
+A Fabric mod for Minecraft that extends [**Create Fly**](https://modrinth.com/mod/create-fly) and 
+adds new fluids, crops, food items, and Create-compatible recipes. It also complements [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) and other 
+food mods.
+
+**Dependencies:** 
+ - [**Create Fly**](https://modrinth.com/mod/create-fly)
+ - [**Fabric API**](https://modrinth.com/mod/fabric-api)
 
 **Optional dependencies:**
- - Farmer's Delight Refabricated
+ - [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated)
 
 ---
 
