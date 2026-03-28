@@ -1,0 +1,29 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    "minecraft:glass_bottle",
+    "minecraft:bone_meal",
+    "minecraft:sugar"
+  ],
+  "fluid_ingredients": [
+    {
+      "type": "fluid_tag",
+      "amount": 20250,
+      "fluid_tag": "#c:milk"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_new_foods:yogurt",
+      "count": 1
+    }
+  ]
+}

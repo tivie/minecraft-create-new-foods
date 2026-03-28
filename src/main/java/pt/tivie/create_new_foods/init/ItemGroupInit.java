@@ -40,6 +40,13 @@ public class ItemGroupInit {
                 entries.add(ItemInit.CUPCAKE_MELON);
                 entries.add(ItemInit.CUPCAKE_APPLE);
                 entries.add(ItemInit.CUPCAKE_GLOW_BERRY);
+                entries.add(ItemInit.YOGURT);
+                entries.add(ItemInit.YOGURT_PUMPKIN);
+                entries.add(ItemInit.YOGURT_SWEETBERRY);
+                entries.add(ItemInit.YOGURT_VANILLA);
+                entries.add(ItemInit.YOGURT_MELON);
+                entries.add(ItemInit.YOGURT_APPLE);
+                entries.add(ItemInit.YOGURT_GLOW_BERRY);
             })
             .build();
 

@@ -36,5 +36,12 @@
   "item.create_new_foods.cupcake_vanilla": "Vanilla Cupcake",
   "item.create_new_foods.cupcake_melon": "Melon Cupcake",
   "item.create_new_foods.cupcake_apple": "Apple Cupcake",
-  "item.create_new_foods.cupcake_glow_berry": "Glow Berry Cupcake"
+  "item.create_new_foods.cupcake_glow_berry": "Glow Berry Cupcake",
+  "item.create_new_foods.yogurt": "Yogurt",
+  "item.create_new_foods.yogurt_pumpkin": "Pumpkin Yogurt",
+  "item.create_new_foods.yogurt_sweetberry": "Sweet Berry Yogurt",
+  "item.create_new_foods.yogurt_vanilla": "Vanilla Yogurt",
+  "item.create_new_foods.yogurt_melon": "Melon Yogurt",
+  "item.create_new_foods.yogurt_apple": "Apple Yogurt",
+  "item.create_new_foods.yogurt_glow_berry": "Glow Berry Yogurt"
 }

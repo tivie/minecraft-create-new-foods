@@ -109,6 +109,25 @@ All variants grant nutrition 5, saturation 0.6, and are always edible.
 
 ---
 
+### Yogurt (`create_new_foods:yogurt`)
+
+A dairy item crafted with milk, a glass bottle, bone meal, and sugar. Edible on its own (nutrition 4, saturation 0.5), granting Regeneration I for 8s.
+
+### Yogurt Variants
+
+All variants grant nutrition 5, saturation 0.6, and are always edible.
+
+| Item                                                        | Effect (12s)       |
+|-------------------------------------------------------------|--------------------|
+| Pumpkin Yogurt (`create_new_foods:yogurt_pumpkin`)          | Speed II           |
+| Sweet Berry Yogurt (`create_new_foods:yogurt_sweetberry`)   | Regeneration II    |
+| Vanilla Yogurt (`create_new_foods:yogurt_vanilla`)          | Fire Resistance II |
+| Melon Yogurt (`create_new_foods:yogurt_melon`)              | Absorption II      |
+| Apple Yogurt (`create_new_foods:yogurt_apple`)              | Strength II        |
+| Glow Berry Yogurt (`create_new_foods:yogurt_glow_berry`)    | Glowing II         |
+
+---
+
 ## Recipes
 
 ### Crafting Table
@@ -155,6 +174,34 @@ All flavored ice cream variants can be crafted without Create machinery by combi
 | Apple Ice Cream       | Apple Pulp Bucket       |
 | Glow Berry Ice Cream  | Glow Berry Pulp Bucket  |
 
+
+#### Yogurt (1x)
+
+Shapeless — no specific position required:
+- 1x Milk (`#create_new_foods:milk`)
+- 1x Glass Bottle
+- 1x Bone Meal
+- 1x Sugar
+
+#### Flavored Yogurts
+
+```
+ X
+ Y
+```
+- `X` = Flavor bucket
+- `Y` = Yogurt (`create_new_foods:yogurt`)
+
+| Recipe              | Bucket                  |
+|---------------------|-------------------------|
+| Pumpkin Yogurt      | Pumpkin Pulp Bucket     |
+| Sweet Berry Yogurt  | Sweet Berry Pulp Bucket |
+| Vanilla Yogurt      | Vanilla Bucket          |
+| Melon Yogurt        | Melon Pulp Bucket       |
+| Apple Yogurt        | Apple Pulp Bucket       |
+| Glow Berry Yogurt   | Glow Berry Pulp Bucket  |
+
+---
 
 #### Cupcake (1x)
 
@@ -250,6 +297,12 @@ Filling recipes are performed in a Create Spout or filling machine.
 | Melon Cupcake         | Cupcake        | Melon Pulp (`#create_new_food:melon_pulp`)            | Melon Cupcake         |
 | Apple Cupcake         | Cupcake        | Apple Pulp (`#create_new_food:apple_pulp`)            | Apple Cupcake         |
 | Glow Berry Cupcake    | Cupcake        | Glow Berry Pulp (`#create_new_food:glow_berry`)       | Glow Berry Cupcake    |
+| Pumpkin Yogurt        | Yogurt         | Pumpkin Pulp (`#create_new_foods:pumpkin`)            | Pumpkin Yogurt        |
+| Sweet Berry Yogurt    | Yogurt         | Sweet Berry Pulp (`#create_new_foods:sweetberry`)     | Sweet Berry Yogurt    |
+| Vanilla Yogurt        | Yogurt         | Vanilla (`#create_new_foods:vanilla`)                 | Vanilla Yogurt        |
+| Melon Yogurt          | Yogurt         | Melon Pulp (`#create_new_foods:melon`)                | Melon Yogurt          |
+| Apple Yogurt          | Yogurt         | Apple Pulp (`#create_new_foods:apple`)                | Apple Yogurt          |
+| Glow Berry Yogurt     | Yogurt         | Glow Berry Pulp (`#create_new_foods:glow_berry`)      | Glow Berry Yogurt     |
 
 ---
 

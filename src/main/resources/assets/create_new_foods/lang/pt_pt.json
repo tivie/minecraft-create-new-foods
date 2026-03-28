@@ -36,5 +36,12 @@
   "item.create_new_foods.cupcake_vanilla": "Queque de Baunilha",
   "item.create_new_foods.cupcake_melon": "Queque de Melancia",
   "item.create_new_foods.cupcake_apple": "Queque de Maçã",
-  "item.create_new_foods.cupcake_glow_berry": "Queque de Bagas Brilhantes"
+  "item.create_new_foods.cupcake_glow_berry": "Queque de Bagas Brilhantes",
+  "item.create_new_foods.yogurt": "Iogurte",
+  "item.create_new_foods.yogurt_pumpkin": "Iogurte de Abóbora",
+  "item.create_new_foods.yogurt_sweetberry": "Iogurte de Bagas Silvestres",
+  "item.create_new_foods.yogurt_vanilla": "Iogurte de Baunilha",
+  "item.create_new_foods.yogurt_melon": "Iogurte de Melancia",
+  "item.create_new_foods.yogurt_apple": "Iogurte de Maçã",
+  "item.create_new_foods.yogurt_glow_berry": "Iogurte de Bagas Brilhantes"
 }
