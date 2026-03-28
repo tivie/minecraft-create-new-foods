@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "farmersdelight"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    "farmersdelight:pumpkin_slice",
+    "farmersdelight:pumpkin_slice",
+    "farmersdelight:pumpkin_slice",
+    "farmersdelight:pumpkin_slice",
+    "minecraft:sugar"
+  ],
+  "fluid_results": [
+    {
+      "amount": 81000,
+      "id": "create_new_foods:pumpkin_pulp"
+    }
+  ]
+}

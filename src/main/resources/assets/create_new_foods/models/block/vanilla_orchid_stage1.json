@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "create_new_foods:block/vanilla_orchid_stage1"
+  }
+}

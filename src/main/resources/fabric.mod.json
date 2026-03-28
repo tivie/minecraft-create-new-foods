@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "create_new_foods",
+  "version": "${version}",
+  "name": "Create: New Foods",
+  "description": "A mod that improves compatibility between Create Fly and a couple of food mods",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/create_new_foods/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "pt.tivie.create_new_foods.client.CreateNewFoodsDataGenerator"
+    ],
+    "client": [
+      "pt.tivie.create_new_foods.client.CreateNewFoodsClient"
+    ],
+    "main": [
+      "pt.tivie.create_new_foods.CreateNewFoods"
+    ]
+  },
+  "mixins": [
+    "create_new_foods.mixins.json",
+    {
+      "config": "create_new_foods.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "create": "*"
+  },
+  "recommends": {
+    "farmersdelight": "*"
+  }
+}

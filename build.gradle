@@ -1,0 +1,227 @@
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
+plugins {
+    id 'fabric-loom' version '1.15.4'
+    id 'maven-publish'
+    id "com.modrinth.minotaur" version "2.+"
+    id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "3.1.2"
+}
+
+project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        "create_new_foods" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+fabricApi {
+    configureDataGeneration {
+        client = true
+    }
+}
+
+repositories {
+    // Add repositories to retrieve artifacts from in here.
+    maven { url = "https://api.modrinth.com/maven" }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                url = "https://jitpack.io"
+            }
+        }
+        filter {
+            includeGroup "com.github.Chocohead"
+        }
+    }
+}
+
+dependencies {
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    include(modImplementation("com.github.Chocohead:Fabric-ASM:${fabric_asm_version}")) {
+        exclude (group: "net.fabricmc.fabric-api")
+    }
+
+    // Mods create fly and farmers delight refabricated local dev runtime
+    modImplementation "maven.modrinth:create-fly:${project.create_fly_version}"
+    modRuntimeOnly "maven.modrinth:farmers-delight-refabricated:${project.farmers_delight_refabricated_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", minecraft_version
+    inputs.property "loader_version", loader_version
+    filteringCharset = "UTF-8"
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "minecraft_version": minecraft_version,
+                "loader_version": loader_version
+    }
+
+    exclude "**/*.psd"
+}
+
+def targetJavaVersion = 21
+tasks.withType(JavaCompile).configureEach {
+    // ensure that the encoding is set to UTF-8, no matter what the system default is
+    // this fixes some edge cases with special characters not displaying correctly
+    // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+    // If Javadoc is generated, this must be specified in that task too.
+    it.options.encoding = "UTF-8"
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        it.options.release.set(targetJavaVersion)
+    }
+}
+
+def createFlyJarUrl = "https://cdn.modrinth.com/data/dKvj0eNn/versions/oYhbStma/create-fly-1.21.10-6.0.9-2.jar"
+def downloadedModsDir = layout.buildDirectory.dir("downloaded-mods")
+def downloadedCreateFlyJar = downloadedModsDir.map { it.file("create-fly-1.21.10-6.0.9-2.jar") }
+
+tasks.register("downloadCreateFly") {
+    outputs.file(downloadedCreateFlyJar)
+
+    doLast {
+        def outFile = downloadedCreateFlyJar.get().asFile
+        if (outFile.exists()) {
+            return
+        }
+
+        outFile.parentFile.mkdirs()
+
+        new URL(createFlyJarUrl).withInputStream { input ->
+            Files.copy(input, outFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+        }
+    }
+}
+
+tasks.register("cleanCreateFlyFromRunMods", Delete) {
+    delete fileTree("run/mods") {
+        include "create-fly-*.jar"
+    }
+}
+
+tasks.register("installCreateFlyToRunMods", Copy) {
+    dependsOn("downloadCreateFly", "cleanCreateFlyFromRunMods")
+    from(downloadedCreateFlyJar)
+    into(layout.projectDirectory.dir("run/mods"))
+}
+
+tasks.named("build") {
+    dependsOn("installCreateFlyToRunMods")
+}
+
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${archives_base_name}" }
+    }
+}
+
+modrinth {
+    token = providers.gradleProperty("modrinth_token").orElse(System.getenv("MODRINTH_TOKEN") ?: "")
+    projectId = "ACtfF5DS"
+    versionType = "release"
+    uploadFile = remapJar
+    additionalFiles = [sourcesJar]
+    gameVersions = [project.minecraft_version]
+    loaders = ["fabric"]
+    dependencies {
+        required.project "create-fly"
+        required.project "farmers-delight-refabricated"
+        required.project "fabric-api"
+    }
+}
+
+tasks.named("modrinth") {
+    dependsOn("build")
+}
+
+gitChangelog {
+    file.set(file("CHANGELOG.md"))
+    fromRevision.set(project.hasProperty("from")
+        ? project.from
+        : ["git", "describe", "--tags", "--abbrev=0"].execute().text.trim())
+    toRevision.set(project.hasProperty("to") ? project.to : "HEAD")
+
+    templateContent.set("""
+{{#tags}}
+{{#ifContainsType commits type="feat"}}
+### Features
+{{#commits}}{{#ifCommitType . type="feat"}}
+- {{#eachCommitScope .}}**{{.}}** {{/eachCommitScope}}{{{commitDescription .}}}
+{{/ifCommitType}}{{/commits}}
+{{/ifContainsType}}
+{{#ifContainsType commits type="fix"}}
+### Bug Fixes
+{{#commits}}{{#ifCommitType . type="fix"}}
+- {{#eachCommitScope .}}**{{.}}** {{/eachCommitScope}}{{{commitDescription .}}}
+{{/ifCommitType}}{{/commits}}
+{{/ifContainsType}}
+{{#ifContainsType commits type="docs"}}
+### Documentation
+{{#commits}}{{#ifCommitType . type="docs"}}
+- {{#eachCommitScope .}}**{{.}}** {{/eachCommitScope}}{{{commitDescription .}}}
+{{/ifCommitType}}{{/commits}}
+{{/ifContainsType}}
+{{#ifContainsType commits type="chore"}}
+### Chores
+{{#commits}}{{#ifCommitType . type="chore"}}
+- {{#eachCommitScope .}}**{{.}}** {{/eachCommitScope}}{{{commitDescription .}}}
+{{/ifCommitType}}{{/commits}}
+{{/ifContainsType}}
+{{#ifContainsBreaking commits}}
+### Breaking Changes
+{{#commits}}{{#ifCommitBreaking .}}
+- {{{commitDescription .}}}
+{{/ifCommitBreaking}}{{/commits}}
+{{/ifContainsBreaking}}
+{{/tags}}
+""")
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = archives_base_name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+        // Notice: This block does NOT have the same function as the block in the top level.
+        // The repositories here will be used for publishing your artifact, not for
+        // retrieving dependencies.
+    }
+}

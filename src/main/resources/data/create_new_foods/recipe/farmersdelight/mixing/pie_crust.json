@@ -1,0 +1,24 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "farmersdelight"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": ["#c:foods/dough"],
+  "fluid_ingredients": [
+    {
+      "type": "fluid_tag",
+      "amount": 20250,
+      "fluid_tag": "#c:milk"
+    }
+  ],
+  "results": [{
+      "id": "farmersdelight:pie_crust"
+  }]
+}

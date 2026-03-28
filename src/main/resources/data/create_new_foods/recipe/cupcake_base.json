@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "#create_new_foods:wheat_like",
+    "minecraft:water_bucket",
+    "#create_new_foods:milk",
+    "minecraft:egg",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_new_foods:cupcake_base"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "X": "create_new_foods:pumpkin_pulp_bucket",
+    "Y": "create_new_foods:icecream"
+  },
+  "pattern": [
+    " X ",
+    " Y "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_new_foods:icecream_pumpkin"
+  }
+}

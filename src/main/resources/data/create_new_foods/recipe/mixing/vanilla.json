@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    "create_new_foods:vanilla_bean",
+    "create_new_foods:vanilla_bean",
+    "minecraft:sugar"
+  ],
+  "fluid_results": [
+    {
+      "amount": 81000,
+      "id": "create_new_foods:vanilla"
+    }
+  ]
+}

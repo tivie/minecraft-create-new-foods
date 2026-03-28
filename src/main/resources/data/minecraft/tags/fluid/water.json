@@ -1,0 +1,14 @@
+{
+  "values": [
+    "create_new_foods:pumpkin_pulp",
+    "create_new_foods:flowing_pumpkin_pulp",
+    "create_new_foods:sweetberry_pulp",
+    "create_new_foods:flowing_sweetberry_pulp",
+    "create_new_foods:vanilla",
+    "create_new_foods:flowing_vanilla",
+    "create_new_foods:melon_pulp",
+    "create_new_foods:flowing_melon_pulp",
+    "create_new_foods:apple_pulp",
+    "create_new_foods:flowing_apple_pulp"
+  ]
+}

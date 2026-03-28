@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "#c:foods/dough",
+    "#create_new_foods:milk",
+    "minecraft:egg",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_new_foods:cupcake_base"
+  }
+}

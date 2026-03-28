@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "#": "#c:foods/dough",
+    "X": "minecraft:sugar",
+    "Y": "#create_new_foods:milk"
+  },
+  "pattern": [
+    " Y ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 4,
+    "id": "create_new_foods:icecream_cone"
+  }
+}

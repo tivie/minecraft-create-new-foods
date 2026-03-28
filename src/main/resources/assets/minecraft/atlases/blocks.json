@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/pumpkin_pulp_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/pumpkin_pulp_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/sweetberry_pulp_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/sweetberry_pulp_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/vanilla_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/vanilla_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/melon_pulp_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/melon_pulp_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/apple_pulp_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/apple_pulp_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/glow_berry_pulp_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/glow_berry_pulp_flow"
+    }
+  ]
+}
