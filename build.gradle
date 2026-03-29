@@ -8,7 +8,7 @@ plugins {
     id("se.bjurr.gitchangelog.git-changelog-gradle-plugin") version "3.1.2"
 }
 
-project.mod_version
+version = project.mod_version
 group = project.maven_group
 
 base {
@@ -154,6 +154,13 @@ modrinth {
     additionalFiles = [sourcesJar]
     gameVersions = [project.minecraft_version]
     loaders = ["fabric"]
+    changelog = providers.fileContents(layout.projectDirectory.file("CHANGELOG.md")).asText.map { content ->
+        def lines = content.split("\n") as List
+        def start = lines.findIndexOf { it.startsWith("## ") }
+        if (start == -1) return ""
+        def end = lines.findIndexOf(start + 1) { it.startsWith("## ") }
+        (end == -1 ? lines[start..-1] : lines[start..<end]).join("\n").trim()
+    }
     dependencies {
         required.project "create-fly"
         required.project "farmers-delight-refabricated"
@@ -162,18 +169,42 @@ modrinth {
 }
 
 tasks.named("modrinth") {
-    dependsOn("build")
+    dependsOn("build", "prependChangelog")
+}
+
+def getLatestChangelogVersion() {
+    def changelogFile = file("CHANGELOG.md")
+    if (!changelogFile.exists()) return null
+    def versionPattern = ~/^## (\S+)/
+    for (line in changelogFile.readLines()) {
+        def matcher = versionPattern.matcher(line)
+        if (matcher.find()) return matcher.group(1)
+    }
+    return null
+}
+
+tasks.register("prependChangelog") {
+    dependsOn("gitChangelog")
+    doLast {
+        def newContent = file("${buildDir}/changelog-new.md").text.trim()
+        if (!newContent) return
+        def changelogFile = file("CHANGELOG.md")
+        def oldContent = changelogFile.exists() ? changelogFile.text.trim() : ""
+        changelogFile.text = newContent + (oldContent ? "\n\n" + oldContent : "") + "\n"
+    }
 }
 
 gitChangelog {
-    file.set(file("CHANGELOG.md"))
+    file.set(file("${buildDir}/changelog-new.md"))
     fromRevision.set(project.hasProperty("from")
         ? project.from
-        : ["git", "describe", "--tags", "--abbrev=0"].execute().text.trim())
+        : (getLatestChangelogVersion()
+            ?: ["git", "rev-list", "--max-parents=0", "HEAD"].execute().text.trim()))
     toRevision.set(project.hasProperty("to") ? project.to : "HEAD")
 
     templateContent.set("""
 {{#tags}}
+## {{name}}
 {{#ifContainsType commits type="feat"}}
 ### Features
 {{#commits}}{{#ifCommitType . type="feat"}}
@@ -204,6 +235,7 @@ gitChangelog {
 - {{{commitDescription .}}}
 {{/ifCommitBreaking}}{{/commits}}
 {{/ifContainsBreaking}}
+
 {{/tags}}
 """)
 }
