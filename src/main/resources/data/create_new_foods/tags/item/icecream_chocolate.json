@@ -1,0 +1,9 @@
+{
+  "values": [
+    "create_new_foods:icecream_chocolate",
+    {
+      "id": "travel_friendly_food:chocolate_ice_cream",
+      "required": false
+    }
+  ]
+}

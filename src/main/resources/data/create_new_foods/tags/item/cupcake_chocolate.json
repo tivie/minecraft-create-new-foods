@@ -1,0 +1,9 @@
+{
+  "values": [
+    "create_new_foods:cupcake_chocolate",
+    {
+      "id": "travel_friendly_food:chocolate_cupcake",
+      "required": false
+    }
+  ]
+}

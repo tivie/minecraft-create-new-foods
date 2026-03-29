@@ -1,0 +1,9 @@
+{
+  "values": [
+    "create_new_foods:icecream_sweetberry",
+    {
+      "id": "travel_friendly_food:sweet_berry_ice_cream",
+      "required": false
+    }
+  ]
+}

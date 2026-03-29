@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pt.tivie.create_new_foods.compat.TffCompat;
 import pt.tivie.create_new_foods.init.BlockInit;
 import pt.tivie.create_new_foods.init.FluidInit;
 import pt.tivie.create_new_foods.init.ItemGroupInit;
@@ -23,6 +24,7 @@ public class CreateNewFoods implements ModInitializer {
         ItemGroupInit.load();
         ItemInit.load();
         WorldGenInit.load();
+        TffCompat.load();
     }
 
     public static Identifier id(String path) {

@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": ["travel_friendly_food"]
+    }
+  ],
+  "type": "create:filling",
+  "ingredient": "create_new_foods:icecream",
+  "fluid_ingredient": {
+    "type": "fluid_tag",
+    "amount": 20250,
+    "fluid_tag": "#c:chocolate"
+  },
+  "result": {
+    "id": "travel_friendly_food:chocolate_ice_cream"
+  }
+}
