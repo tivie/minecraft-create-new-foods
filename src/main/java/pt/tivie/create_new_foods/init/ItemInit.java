@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import pt.tivie.create_new_foods.CreateNewFoods;
 import pt.tivie.create_new_foods.item.food.Cupcake;
 import pt.tivie.create_new_foods.item.food.IceCream;
+import pt.tivie.create_new_foods.item.food.Juice;
 import pt.tivie.create_new_foods.item.food.Yogurt;
 
 import java.util.function.Function;
@@ -69,6 +70,14 @@ public class ItemInit {
     public static final Item CUPCAKE_GLOW_BERRY = registerItem("cupcake_glow_berry", Item::new, Cupcake.getCupcakeGlowBerry());
 
     public static final Item ICECREAM_GLOW_BERRY = registerItem("icecream_glow_berry", Item::new, IceCream.getIceCreamGlowBerry());
+
+    // Juice
+    public static final Item JUICE_APPLE = registerItem("juice_apple", Item::new, Juice.getJuiceApple());
+    public static final Item JUICE_GLOW_BERRY = registerItem("juice_glow_berry", Item::new, Juice.getJuiceGlowBerry());
+    public static final Item JUICE_MELON = registerItem("juice_melon", Item::new, Juice.getJuiceMelon());
+    public static final Item JUICE_PUMPKIN = registerItem("juice_pumpkin", Item::new, Juice.getJuicePumpkin());
+    public static final Item JUICE_SWEETBERRY = registerItem("juice_sweetberry", Item::new, Juice.getJuiceSweetberry());
+    public static final Item JUICE_TUTTI_FRUTTI = registerItem("juice_tutti_frutti", Item::new, Juice.getJuiceTuttiFrutti());
 
     // Dairy
     public static final Item YOGURT = registerItem("yogurt", Item::new, Yogurt.getYogurt());

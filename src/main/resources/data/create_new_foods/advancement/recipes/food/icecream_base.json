@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_snowball": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["minecraft:snowball"]}]
+      }
+    },
+    "has_sugar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["minecraft:sugar"]}]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": { "recipe": "create_new_foods:icecream_cone" }
+    }
+  },
+  "requirements": [["has_snowball", "has_the_recipe"], ["has_sugar", "has_the_recipe"]],
+  "rewards": {
+    "recipes": [
+      "create_new_foods:icecream_cone",
+      "create_new_foods:icecream"
+    ]
+  },
+  "sends_telemetry_data": false
+}

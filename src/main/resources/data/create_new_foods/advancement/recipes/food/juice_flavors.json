@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glass_bottle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["minecraft:potion"]}]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": { "recipe": "create_new_foods:juice_apple" }
+    }
+  },
+  "requirements": [["has_glass_bottle", "has_the_recipe"]],
+  "rewards": {
+    "recipes": [
+      "create_new_foods:juice_apple",
+      "create_new_foods:juice_glow_berry",
+      "create_new_foods:juice_melon",
+      "create_new_foods:juice_pumpkin",
+      "create_new_foods:juice_sweetberry",
+      "create_new_foods:juice_tutti_frutti"
+    ]
+  },
+  "sends_telemetry_data": false
+}

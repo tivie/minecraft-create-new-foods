@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_milk": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["minecraft:milk_bucket"]}]
+      }
+    },
+    "has_bone_meal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["minecraft:bone_meal"]}]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": { "recipe": "create_new_foods:yogurt" }
+    }
+  },
+  "requirements": [["has_milk", "has_the_recipe"], ["has_bone_meal", "has_the_recipe"]],
+  "rewards": { "recipes": ["create_new_foods:yogurt"] },
+  "sends_telemetry_data": false
+}

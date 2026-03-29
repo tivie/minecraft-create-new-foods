@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_icecream": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["create_new_foods:icecream"]}]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": { "recipe": "create_new_foods:icecream_apple" }
+    }
+  },
+  "requirements": [["has_icecream", "has_the_recipe"]],
+  "rewards": {
+    "recipes": [
+      "create_new_foods:icecream_apple",
+      "create_new_foods:icecream_chocolate",
+      "create_new_foods:icecream_glow_berry",
+      "create_new_foods:icecream_melon",
+      "create_new_foods:icecream_pumpkin",
+      "create_new_foods:icecream_sweetberry",
+      "create_new_foods:icecream_vanilla"
+    ]
+  },
+  "sends_telemetry_data": false
+}

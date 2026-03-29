@@ -98,7 +98,7 @@ public class Cupcake {
         FoodComponent foodComponent = createCupcake().build();
         ConsumableComponent consumableComponent = ConsumableComponents.food()
                 .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.NIGHT_VISION, 12 * 20, 1),
+                        new StatusEffectInstance(StatusEffects.GLOWING, 12 * 20, 1),
                         1.0f
                 ))
                 .build();

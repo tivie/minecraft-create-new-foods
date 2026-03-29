@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_yogurt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{"items": ["create_new_foods:yogurt"]}]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": { "recipe": "create_new_foods:yogurt_apple" }
+    }
+  },
+  "requirements": [["has_yogurt", "has_the_recipe"]],
+  "rewards": {
+    "recipes": [
+      "create_new_foods:yogurt_apple",
+      "create_new_foods:yogurt_glow_berry",
+      "create_new_foods:yogurt_melon",
+      "create_new_foods:yogurt_pumpkin",
+      "create_new_foods:yogurt_sweetberry",
+      "create_new_foods:yogurt_vanilla"
+    ]
+  },
+  "sends_telemetry_data": false
+}
