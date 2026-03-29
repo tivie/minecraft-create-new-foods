@@ -3,16 +3,17 @@
 ![banner](docs/assets/create_new_foods_banner.png)
 
 
-A Fabric mod for Minecraft that extends [**Create Fly**](https://modrinth.com/mod/create-fly) and 
-adds new fluids, crops, food items, and Create-compatible recipes. It also complements [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) and other 
-food mods.
+A Fabric mod for Minecraft that extends [**Create Fly**](https://modrinth.com/mod/create-fly) and
+adds new fluids, crops, food items, and Create-compatible recipes. It also adds compatibility with
+[Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) and [Travel Friendly Food](https://modrinth.com/mod/travel-friendly-food).
 
-**Dependencies:** 
+**Dependencies:**
  - [**Create Fly**](https://modrinth.com/mod/create-fly)
  - [**Fabric API**](https://modrinth.com/mod/fabric-api)
 
 **Optional dependencies:**
  - [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated)
+ - [Travel Friendly Food](https://modrinth.com/mod/travel-friendly-food)
 
 ---
 
@@ -25,13 +26,15 @@ food mods.
   - [Crafting Table](#crafting-table)
   - [Create Mixing](#create-mixing)
   - [Create Filling](#create-filling)
-  - [Farmer's Delight Mixing](#farmers-delight-mixing)
+- [Mod Compatibility](#mod-compatibility)
+  - [Farmer's Delight Refabricated](#farmers-delight-refabricated)
+  - [Travel Friendly Food](#travel-friendly-food)
 
 ---
 
 ## Crops
 
-### Vanilla (`create_new_food:vanilla_bean`)
+### Vanilla (`create_new_foods:vanilla_bean`)
 
 A slow-growing orchid that produces vanilla, inspired by real-life vanilla plants.
 
@@ -68,7 +71,7 @@ Each fluid has a custom tint applied when the player is submerged in it.
 
 ## Food Items
 
-### Ice Cream Cone (`create_new_food:icecream_cone`)
+### Ice Cream Cone (`create_new_foods:icecream_cone`)
 
 The base item for all ice cream variants. Crafted or mixed.
 
@@ -76,20 +79,20 @@ The base item for all ice cream variants. Crafted or mixed.
 
 All variants grant nutrition 3, saturation 0.4, and are always edible.
 
-| Item                                                      | Effect (12s)       |
-|-----------------------------------------------------------|--------------------|
-| Ice Cream (`create_new_food:icecream`)                        | Fire Resistance II |
-| Chocolate Ice Cream (`create_new_food:icecream_chocolate`)    | Health Boost II    |
-| Pumpkin Ice Cream (`create_new_food:icecream_pumpkin`)        | Speed II           |
-| Sweet Berry Ice Cream (`create_new_food:icecream_sweetberry`) | Regeneration II    |
-| Vanilla Ice Cream (`create_new_food:icecream_vanilla`)        | Fire Resistance II |
-| Melon Ice Cream (`create_new_food:icecream_melon`)            | Absorption II      |
-| Apple Ice Cream (`create_new_food:icecream_apple`)            | Strength II        |
-| Glow Berry Ice Cream (`create_new_food:icecream_glow_berry`)  | Glowing II         |
+| Item                                                           | Effect (12s)       |
+|----------------------------------------------------------------|--------------------|
+| Ice Cream (`create_new_foods:icecream`)                        | Fire Resistance II |
+| Chocolate Ice Cream (`create_new_foods:icecream_chocolate`)    | Health Boost II    |
+| Pumpkin Ice Cream (`create_new_foods:icecream_pumpkin`)        | Speed II           |
+| Sweet Berry Ice Cream (`create_new_foods:icecream_sweetberry`) | Regeneration II    |
+| Vanilla Ice Cream (`create_new_foods:icecream_vanilla`)        | Fire Resistance II |
+| Melon Ice Cream (`create_new_foods:icecream_melon`)            | Absorption II      |
+| Apple Ice Cream (`create_new_foods:icecream_apple`)            | Strength II        |
+| Glow Berry Ice Cream (`create_new_foods:icecream_glow_berry`)  | Glowing II         |
 
 ---
 
-### Cupcake (`create_new_food:cupcake_base`)
+### Cupcake (`create_new_foods:cupcake_base`)
 
 The base item for all cupcake variants. Crafted via table or Create mixing (heated). Edible on its own (nutrition 2, saturation 0.1).
 
@@ -97,15 +100,15 @@ The base item for all cupcake variants. Crafted via table or Create mixing (heat
 
 All variants grant nutrition 5, saturation 0.6, and are always edible.
 
-| Item                                                   | Effect (12s)       |
-|--------------------------------------------------------|--------------------|
-| Chocolate Cupcake (`create_new_food:cupcake_chocolate`)       | Health Boost II    |
-| Pumpkin Cupcake (`create_new_food:cupcake_pumpkin`)           | Speed II           |
-| Sweet Berry Cupcake (`create_new_food:cupcake_sweetberry`)    | Regeneration II    |
-| Vanilla Cupcake (`create_new_food:cupcake_vanilla`)           | Fire Resistance II |
-| Melon Cupcake (`create_new_food:cupcake_melon`)               | Absorption II      |
-| Apple Cupcake (`create_new_food:cupcake_apple`)               | Strength II        |
-| Glow Berry Cupcake (`create_new_food:cupcake_glow_berry`)     | Night Vision II    |
+| Item                                                          | Effect (12s)       |
+|---------------------------------------------------------------|--------------------|
+| Chocolate Cupcake (`create_new_foods:cupcake_chocolate`)      | Health Boost II    |
+| Pumpkin Cupcake (`create_new_foods:cupcake_pumpkin`)          | Speed II           |
+| Sweet Berry Cupcake (`create_new_foods:cupcake_sweetberry`)   | Regeneration II    |
+| Vanilla Cupcake (`create_new_foods:cupcake_vanilla`)          | Fire Resistance II |
+| Melon Cupcake (`create_new_foods:cupcake_melon`)              | Absorption II      |
+| Apple Cupcake (`create_new_foods:cupcake_apple`)              | Strength II        |
+| Glow Berry Cupcake (`create_new_foods:cupcake_glow_berry`)    | Glowing II         |
 
 ---
 
@@ -128,20 +131,20 @@ All variants grant nutrition 5, saturation 0.6, and are always edible.
 
 ---
 
-## Juices
+### Juices
 
 ### Juice Variants
 
 All juices are drinkable (nutrition 2, saturation 0.3, always edible). Consuming returns an empty glass bottle.
 
-| Item                                                              | Effect (12s)    |
-|-------------------------------------------------------------------|-----------------|
-| Apple Juice (`create_new_foods:juice_apple`)                      | Strength I      |
-| Glow Berry Juice (`create_new_foods:juice_glow_berry`)            | Glowing I       |
-| Melon Juice (`create_new_foods:juice_melon`)                      | Absorption I    |
-| Pumpkin Juice (`create_new_foods:juice_pumpkin`)                  | Speed I         |
-| Sweet Berry Juice (`create_new_foods:juice_sweetberry`)           | Regeneration I  |
-| Tutti Frutti Juice (`create_new_foods:juice_tutti_frutti`)        | Strength I, Glowing I, Absorption I, Speed I, Regeneration I (all 60s) |
+| Item                                                       | Effect (12s)                                                             |
+|------------------------------------------------------------|--------------------------------------------------------------------------|
+| Apple Juice (`create_new_foods:juice_apple`)               | Strength I                                                               |
+| Glow Berry Juice (`create_new_foods:juice_glow_berry`)     | Glowing I                                                                |
+| Melon Juice (`create_new_foods:juice_melon`)               | Absorption I                                                             |
+| Pumpkin Juice (`create_new_foods:juice_pumpkin`)           | Speed I                                                                  |
+| Sweet Berry Juice (`create_new_foods:juice_sweetberry`)    | Regeneration I                                                           |
+| Tutti Frutti Juice (`create_new_foods:juice_tutti_frutti`) | Strength I, Glowing I, Absorption I, Speed I, Regeneration I (all 60s)   |
 
 ---
 
@@ -179,7 +182,7 @@ All flavored ice cream variants can be crafted without Create machinery by combi
  Y
 ```
 - `X` = Flavor bucket
-- `Y` = Ice Cream (`create_new_food:icecream`)
+- `Y` = Ice Cream (`create_new_foods:icecream`)
 
 | Recipe                | Bucket                  |
 |-----------------------|-------------------------|
@@ -247,9 +250,9 @@ Shapeless — combine a Water Potion (bottle) with all five pulp buckets:
 #### Cupcake (1x)
 
 Shapeless — no specific position required:
-- 1x Wheat-like item (`#create_new_food:wheat_like`)
+- 1x Wheat-like item (`#create_new_foods:wheat_like`)
 - 1x Water Bucket
-- 1x Milk (`#create_new_food:milk`)
+- 1x Milk (`#create_new_foods:milk`)
 - 1x Egg
 - 1x Sugar
 
@@ -260,7 +263,7 @@ Shapeless — no specific position required:
  Y
 ```
 - `X` = Frosting bucket
-- `Y` = Cupcake (`create_new_food:cupcake_base`)
+- `Y` = Cupcake (`create_new_foods:cupcake_base`)
 
 | Recipe              | Bucket                  |
 |---------------------|-------------------------|
@@ -292,9 +295,6 @@ All mixing recipes require the **Create** mod.
 #### Pumpkin Pulp
 - 1x Pumpkin + 1x Sugar
 
-#### Pumpkin Pulp _(Farmer's Delight - requires both Create and Farmer's Delight)_
-- 4x Pumpkin Slice + 1x Sugar
-
 #### Sweet Berry Pulp
 - 4x Sweet Berries + 1x Sugar
 
@@ -325,41 +325,81 @@ Filling recipes are performed in a Create Spout or filling machine.
 |-----------------------|----------------|---------------------------------------------------|-----------------------|
 | Ice Cream             | Ice Cream Cone | Milk (`#c:milk`)                                  | Ice Cream             |
 | Chocolate Ice Cream   | Ice Cream      | Chocolate (`#c:chocolate`)                        | Chocolate Ice Cream   |
-| Pumpkin Ice Cream     | Ice Cream      | Pumpkin Pulp (`#create_new_food:pumpkin_pulp`)        | Pumpkin Ice Cream     |
-| Sweet Berry Ice Cream | Ice Cream      | Sweet Berry Pulp (`#create_new_food:sweetberry_pulp`) | Sweet Berry Ice Cream |
-| Vanilla Ice Cream     | Ice Cream      | Vanilla (`#create_new_food:vanilla`)                  | Vanilla Ice Cream     |
-| Melon Ice Cream       | Ice Cream      | Melon Pulp (`#create_new_food:melon_pulp`)            | Melon Ice Cream       |
-| Apple Ice Cream       | Ice Cream      | Apple Pulp (`#create_new_food:apple_pulp`)            | Apple Ice Cream       |
-| Glow Berry Ice Cream  | Ice Cream      | Glow Berry Pulp (`#create_new_food:glow_berry`)       | Glow Berry Ice Cream  |
+| Pumpkin Ice Cream     | Ice Cream      | Pumpkin Pulp (`#create_new_foods:pumpkin`)        | Pumpkin Ice Cream     |
+| Sweet Berry Ice Cream | Ice Cream      | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Ice Cream |
+| Vanilla Ice Cream     | Ice Cream      | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Ice Cream     |
+| Melon Ice Cream       | Ice Cream      | Melon Pulp (`#create_new_foods:melon`)            | Melon Ice Cream       |
+| Apple Ice Cream       | Ice Cream      | Apple Pulp (`#create_new_foods:apple`)            | Apple Ice Cream       |
+| Glow Berry Ice Cream  | Ice Cream      | Glow Berry Pulp (`#create_new_foods:glow_berry`)  | Glow Berry Ice Cream  |
 | Chocolate Cupcake     | Cupcake        | Chocolate (`#c:chocolate`)                        | Chocolate Cupcake     |
-| Pumpkin Cupcake       | Cupcake        | Pumpkin Pulp (`#create_new_food:pumpkin_pulp`)        | Pumpkin Cupcake       |
-| Sweet Berry Cupcake   | Cupcake        | Sweet Berry Pulp (`#create_new_food:sweetberry_pulp`) | Sweet Berry Cupcake   |
-| Vanilla Cupcake       | Cupcake        | Vanilla (`#create_new_food:vanilla`)                  | Vanilla Cupcake       |
-| Melon Cupcake         | Cupcake        | Melon Pulp (`#create_new_food:melon_pulp`)            | Melon Cupcake         |
-| Apple Cupcake         | Cupcake        | Apple Pulp (`#create_new_food:apple_pulp`)            | Apple Cupcake         |
-| Glow Berry Cupcake    | Cupcake        | Glow Berry Pulp (`#create_new_food:glow_berry`)       | Glow Berry Cupcake    |
-| Pumpkin Yogurt        | Yogurt         | Pumpkin Pulp (`#create_new_foods:pumpkin`)            | Pumpkin Yogurt        |
-| Sweet Berry Yogurt    | Yogurt         | Sweet Berry Pulp (`#create_new_foods:sweetberry`)     | Sweet Berry Yogurt    |
-| Vanilla Yogurt        | Yogurt         | Vanilla (`#create_new_foods:vanilla`)                 | Vanilla Yogurt        |
-| Melon Yogurt          | Yogurt         | Melon Pulp (`#create_new_foods:melon`)                | Melon Yogurt          |
-| Apple Yogurt          | Yogurt         | Apple Pulp (`#create_new_foods:apple`)                | Apple Yogurt          |
-| Glow Berry Yogurt     | Yogurt         | Glow Berry Pulp (`#create_new_foods:glow_berry`)      | Glow Berry Yogurt     |
-| Apple Juice           | Potion         | Apple Pulp (`#create_new_foods:apple`)                | Apple Juice           |
-| Glow Berry Juice      | Potion         | Glow Berry Pulp (`#create_new_foods:glow_berry`)      | Glow Berry Juice      |
-| Melon Juice           | Potion         | Melon Pulp (`#create_new_foods:melon`)                | Melon Juice           |
-| Pumpkin Juice         | Potion         | Pumpkin Pulp (`#create_new_foods:pumpkin`)            | Pumpkin Juice         |
-| Sweet Berry Juice     | Potion         | Sweet Berry Pulp (`#create_new_foods:sweetberry`)     | Sweet Berry Juice     |
+| Pumpkin Cupcake       | Cupcake        | Pumpkin Pulp (`#create_new_foods:pumpkin`)        | Pumpkin Cupcake       |
+| Sweet Berry Cupcake   | Cupcake        | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Cupcake   |
+| Vanilla Cupcake       | Cupcake        | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Cupcake       |
+| Melon Cupcake         | Cupcake        | Melon Pulp (`#create_new_foods:melon`)            | Melon Cupcake         |
+| Apple Cupcake         | Cupcake        | Apple Pulp (`#create_new_foods:apple`)            | Apple Cupcake         |
+| Glow Berry Cupcake    | Cupcake        | Glow Berry Pulp (`#create_new_foods:glow_berry`)  | Glow Berry Cupcake    |
+| Pumpkin Yogurt        | Yogurt         | Pumpkin Pulp (`#create_new_foods:pumpkin`)        | Pumpkin Yogurt        |
+| Sweet Berry Yogurt    | Yogurt         | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Yogurt    |
+| Vanilla Yogurt        | Yogurt         | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Yogurt        |
+| Melon Yogurt          | Yogurt         | Melon Pulp (`#create_new_foods:melon`)            | Melon Yogurt          |
+| Apple Yogurt          | Yogurt         | Apple Pulp (`#create_new_foods:apple`)            | Apple Yogurt          |
+| Glow Berry Yogurt     | Yogurt         | Glow Berry Pulp (`#create_new_foods:glow_berry`)  | Glow Berry Yogurt     |
+| Apple Juice           | Potion         | Apple Pulp (`#create_new_foods:apple`)            | Apple Juice           |
+| Glow Berry Juice      | Potion         | Glow Berry Pulp (`#create_new_foods:glow_berry`)  | Glow Berry Juice      |
+| Melon Juice           | Potion         | Melon Pulp (`#create_new_foods:melon`)            | Melon Juice           |
+| Pumpkin Juice         | Potion         | Pumpkin Pulp (`#create_new_foods:pumpkin`)        | Pumpkin Juice         |
+| Sweet Berry Juice     | Potion         | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Juice     |
 
 ---
 
-### Farmer's Delight Mixing
-_(requires both Create and Farmer's Delight)_
+## Mod Compatibility
 
-Additional mixing recipes that use Farmer's Delight ingredients.
+### Farmer's Delight Refabricated
 
-| Recipe       | Ingredients                 | Result                   |
-|--------------|-----------------------------|--------------------------|
-| Pumpkin Pulp | 4x Pumpkin Slice + 1x Sugar | Pumpkin Pulp (81,000 mB) |
+When [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) is installed alongside this mod, additional Create mixing recipes are unlocked 
+for Farmer's Delight items. All recipes require both **Create** and **Farmer's Delight**.
 
-> Additional Farmer's Delight recipes (tomato sauce, cabbage, pie crust, apple cider) are also included as part of the mod's extended compatibility.
-These recipes fix a bug in Farmer's Delight Refabricated v3.4.2
+> These recipes also fix the missing-recipe bug present in Farmer's Delight Refabricated v3.4.2. The warning still appears
+> but the recipes work nonetheless.
+
+#### Create Mixing Recipes _(requires Create + Farmer's Delight)_
+
+| Recipe        | Ingredients                           | Heat     | Result                   |
+|---------------|---------------------------------------|----------|--------------------------|
+| Pumpkin Pulp  | 4x Pumpkin Slice + 1x Sugar           | None     | 1,000 mB Pumpkin Pulp    |
+| Cabbage Leaf  | 1x Cabbage                            | None     | 2x Cabbage Leaf          |
+| Pie Crust     | 1x Dough + 250 mB Milk                | Heated   | 1x Pie Crust             |
+| Apple Cider   | 2x Apple + 1x Sugar + 1x Glass Bottle | Heated   | 1x Apple Cider           |
+| Tomato Sauce  | 2x Tomato + 1x Bowl                   | None     | 1x Tomato Sauce          |
+
+---
+
+### Travel Friendly Food
+
+When [Travel Friendly Food](https://modrinth.com/mod/travel-friendly-food) is installed alongside this mod, the following compatibility features are activated automatically:
+
+#### Status Effect Bonuses
+
+TFF's overlapping items gain the same status effects as their Create: New Foods equivalents:
+
+| TFF Item                | Effect applied (12s)   |
+|-------------------------|------------------------|
+| Vanilla Ice Cream       | Fire Resistance II     |
+| Chocolate Ice Cream     | Health Boost II        |
+| Sweet Berry Ice Cream   | Regeneration II        |
+| Vanilla Cupcake         | Fire Resistance II     |
+| Chocolate Cupcake       | Health Boost II        |
+| Sweet Berry Cupcake     | Regeneration II        |
+
+#### Create Filling Recipes _(requires Create)_
+
+TFF's flavored items can be produced using the Create filling machine, using your Ice Cream or Cupcake base:
+
+| Recipe                       | Ingredient  | Fluid (250 mB)                                    | Result                |
+|------------------------------|-------------|---------------------------------------------------|-----------------------|
+| Vanilla Ice Cream (TFF)      | Ice Cream   | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Ice Cream     |
+| Chocolate Ice Cream (TFF)    | Ice Cream   | Chocolate (`#c:chocolate`)                        | Chocolate Ice Cream   |
+| Sweet Berry Ice Cream (TFF)  | Ice Cream   | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Ice Cream |
+| Vanilla Cupcake (TFF)        | Cupcake     | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Cupcake       |
+| Chocolate Cupcake (TFF)      | Cupcake     | Chocolate (`#c:chocolate`)                        | Chocolate Cupcake     |
+| Sweet Berry Cupcake (TFF)    | Cupcake     | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Cupcake   |
