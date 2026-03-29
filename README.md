@@ -128,6 +128,23 @@ All variants grant nutrition 5, saturation 0.6, and are always edible.
 
 ---
 
+## Juices
+
+### Juice Variants
+
+All juices are drinkable (nutrition 2, saturation 0.3, always edible). Consuming returns an empty glass bottle.
+
+| Item                                                              | Effect (12s)    |
+|-------------------------------------------------------------------|-----------------|
+| Apple Juice (`create_new_foods:juice_apple`)                      | Strength I      |
+| Glow Berry Juice (`create_new_foods:juice_glow_berry`)            | Glowing I       |
+| Melon Juice (`create_new_foods:juice_melon`)                      | Absorption I    |
+| Pumpkin Juice (`create_new_foods:juice_pumpkin`)                  | Speed I         |
+| Sweet Berry Juice (`create_new_foods:juice_sweetberry`)           | Regeneration I  |
+| Tutti Frutti Juice (`create_new_foods:juice_tutti_frutti`)        | Strength I, Glowing I, Absorption I, Speed I, Regeneration I (all 60s) |
+
+---
+
 ## Recipes
 
 ### Crafting Table
@@ -200,6 +217,30 @@ Shapeless — no specific position required:
 | Melon Yogurt        | Melon Pulp Bucket       |
 | Apple Yogurt        | Apple Pulp Bucket       |
 | Glow Berry Yogurt   | Glow Berry Pulp Bucket  |
+
+---
+
+#### Juices
+
+Shapeless — combine a Water Potion (bottle) with the matching pulp bucket:
+
+| Recipe                | Ingredient              |
+|-----------------------|-------------------------|
+| Apple Juice           | Apple Pulp Bucket       |
+| Glow Berry Juice      | Glow Berry Pulp Bucket  |
+| Melon Juice           | Melon Pulp Bucket       |
+| Pumpkin Juice         | Pumpkin Pulp Bucket     |
+| Sweet Berry Juice     | Sweet Berry Pulp Bucket |
+
+#### Tutti Frutti Juice
+
+Shapeless — combine a Water Potion (bottle) with all five pulp buckets:
+- 1x Potion
+- 1x Apple Pulp Bucket
+- 1x Glow Berry Pulp Bucket
+- 1x Melon Pulp Bucket
+- 1x Pumpkin Pulp Bucket
+- 1x Sweet Berry Pulp Bucket
 
 ---
 
@@ -303,6 +344,11 @@ Filling recipes are performed in a Create Spout or filling machine.
 | Melon Yogurt          | Yogurt         | Melon Pulp (`#create_new_foods:melon`)                | Melon Yogurt          |
 | Apple Yogurt          | Yogurt         | Apple Pulp (`#create_new_foods:apple`)                | Apple Yogurt          |
 | Glow Berry Yogurt     | Yogurt         | Glow Berry Pulp (`#create_new_foods:glow_berry`)      | Glow Berry Yogurt     |
+| Apple Juice           | Potion         | Apple Pulp (`#create_new_foods:apple`)                | Apple Juice           |
+| Glow Berry Juice      | Potion         | Glow Berry Pulp (`#create_new_foods:glow_berry`)      | Glow Berry Juice      |
+| Melon Juice           | Potion         | Melon Pulp (`#create_new_foods:melon`)                | Melon Juice           |
+| Pumpkin Juice         | Potion         | Pumpkin Pulp (`#create_new_foods:pumpkin`)            | Pumpkin Juice         |
+| Sweet Berry Juice     | Potion         | Sweet Berry Pulp (`#create_new_foods:sweetberry`)     | Sweet Berry Juice     |
 
 ---
 

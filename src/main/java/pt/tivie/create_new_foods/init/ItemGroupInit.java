@@ -13,7 +13,7 @@ import pt.tivie.create_new_foods.CreateNewFoods;
 public class ItemGroupInit {
     public static final RegistryKey<ItemGroup> create_new_foods_GROUP_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, CreateNewFoods.id("create_new_foods_group"));
     public static final ItemGroup create_new_foods_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(ItemInit.ICECREAM_CONE))
+            .icon(() -> new ItemStack(ItemInit.ICECREAM))
             .displayName(Text.translatable("itemGroup.create_new_foods.group"))
             .entries((displayContext, entries) -> {
                 entries.add(ItemInit.VANILLA_BEAN);

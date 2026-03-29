@@ -107,7 +107,7 @@ tasks.register("downloadCreateFly") {
 
         outFile.parentFile.mkdirs()
 
-        new URL(createFlyJarUrl).withInputStream { input ->
+        new URI(createFlyJarUrl).toURL().withInputStream { input ->
             Files.copy(input, outFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
         }
     }
@@ -186,7 +186,7 @@ def getLatestChangelogVersion() {
 tasks.register("prependChangelog") {
     dependsOn("gitChangelog")
     doLast {
-        def newContent = file("${buildDir}/changelog-new.md").text.trim()
+        def newContent = file(layout.buildDirectory.file("changelog-new.md").get().asFile).text.trim()
         if (!newContent) return
         def changelogFile = file("CHANGELOG.md")
         def oldContent = changelogFile.exists() ? changelogFile.text.trim() : ""
@@ -195,7 +195,7 @@ tasks.register("prependChangelog") {
 }
 
 gitChangelog {
-    file.set(file("${buildDir}/changelog-new.md"))
+    file.set(file(layout.buildDirectory.file("changelog-new.md").get().asFile))
     fromRevision.set(project.hasProperty("from")
         ? project.from
         : (getLatestChangelogVersion()
