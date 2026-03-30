@@ -1,0 +1,21 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "moredelight"
+      ]
+    }
+  ],
+  "type": "create:filling",
+  "ingredient": "moredelight:toast",
+  "fluid_ingredient": {
+    "type": "fluid_tag",
+    "amount": 250,
+    "fluid_tag": "#create_new_foods:sweetberry"
+  },
+  "result": {
+    "id": "moredelight:toast_with_sweet_berries"
+  }
+}

@@ -418,6 +418,15 @@ More Delight ships its own recipe but uses incorrect field names that Create sil
 | Diced Potatoes | Potato (`minecraft:potatoes`) | 1x Diced Potatoes |
 | Bread Slice    | Bread (`minecraft:bread`)     | 4x Bread Slice    |
 
+#### Create Filling Recipes _(spout)_
+
+| Recipe                   | Ingredient                  | Fluid (250 mB)                                    | Result                   |
+|--------------------------|-----------------------------|---------------------------------------------------|--------------------------|
+| Toast with Honey         | Toast (`moredelight:toast`) | Honey (`#c:honey`)                                | Toast with Honey         |
+| Toast with Sweet Berries | Toast (`moredelight:toast`) | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Toast with Sweet Berries |
+| Toast with Glow Berries  | Toast (`moredelight:toast`) | Glow Berry Pulp (`#create_new_foods:glow_berry`)  | Toast with Glow Berries  |
+| Toast with Chocolate     | Toast (`moredelight:toast`) | Chocolate (`#c:chocolate`)                        | Toast with Chocolate     |
+
 ---
 
 ### Travel Friendly Food
