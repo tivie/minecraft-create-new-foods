@@ -415,7 +415,7 @@ More Delight ships its own recipe but uses incorrect field names that Create sil
 
 | Recipe         | Ingredient                    | Result            |
 |----------------|-------------------------------|-------------------|
-| Diced Potatoes | Potato (`minecraft:potatoes`) | 1x Diced Potatoes |
+| Diced Potatoes | Potato (`minecraft:potato`)   | 1x Diced Potatoes |
 | Bread Slice    | Bread (`minecraft:bread`)     | 4x Bread Slice    |
 
 #### Create Filling Recipes _(spout)_
