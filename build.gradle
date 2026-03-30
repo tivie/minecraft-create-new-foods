@@ -163,7 +163,6 @@ modrinth {
     }
     dependencies {
         required.project "create-fly"
-        required.project "farmers-delight-refabricated"
         required.project "fabric-api"
     }
 }
