@@ -34,6 +34,8 @@
     "create": "*"
   },
   "recommends": {
-    "farmersdelight": "*"
+    "farmersdelight": "*",
+    "travel_friendly_food": "*",
+    "moredelight": "*"
   }
 }

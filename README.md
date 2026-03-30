@@ -13,6 +13,7 @@ adds new fluids, crops, food items, and Create-compatible recipes. It also adds 
 
 **Optional dependencies:**
  - [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated)
+ - [More Delight](https://modrinth.com/mod/more-delight)
  - [Travel Friendly Food](https://modrinth.com/mod/travel-friendly-food)
 
 ---
@@ -28,6 +29,7 @@ adds new fluids, crops, food items, and Create-compatible recipes. It also adds 
   - [Create Filling](#create-filling)
 - [Mod Compatibility](#mod-compatibility)
   - [Farmer's Delight Refabricated](#farmers-delight-refabricated)
+  - [More Delight](#more-delight)
   - [Travel Friendly Food](#travel-friendly-food)
 
 ---
@@ -356,21 +358,65 @@ Filling recipes are performed in a Create Spout or filling machine.
 
 ### Farmer's Delight Refabricated
 
-When [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) is installed alongside this mod, additional Create mixing recipes are unlocked 
-for Farmer's Delight items. All recipes require both **Create** and **Farmer's Delight**.
+When [Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) is installed alongside this mod, additional Create recipes are unlocked for 
+Farmer's Delight items — both **mixing** recipes (via the mixer) and **cutting** recipes (via the mechanical saw). 
+All recipes require both **Create** and **Farmer's Delight**.
 
 > These recipes also fix the missing-recipe bug present in Farmer's Delight Refabricated v3.4.2. The warning still appears
 > but the recipes work nonetheless.
 
-#### Create Mixing Recipes _(requires Create + Farmer's Delight)_
+#### Create Mixing Recipes _(mixer)_
 
 | Recipe        | Ingredients                           | Heat     | Result                   |
 |---------------|---------------------------------------|----------|--------------------------|
 | Pumpkin Pulp  | 4x Pumpkin Slice + 1x Sugar           | None     | 1,000 mB Pumpkin Pulp    |
+| Wheat Dough   | 3x Wheat Flour + 1x Egg               | None     | 3x Wheat Dough           |
 | Cabbage Leaf  | 1x Cabbage                            | None     | 2x Cabbage Leaf          |
 | Pie Crust     | 1x Dough + 250 mB Milk                | Heated   | 1x Pie Crust             |
 | Apple Cider   | 2x Apple + 1x Sugar + 1x Glass Bottle | Heated   | 1x Apple Cider           |
 | Tomato Sauce  | 2x Tomato + 1x Bowl                   | None     | 1x Tomato Sauce          |
+
+#### Create Cutting Recipes _(mechanical saw)_
+
+| Recipe              | Ingredient                                     | Result                                |
+|---------------------|------------------------------------------------|---------------------------------------|
+| Raw Pasta           | Any dough (`#c:foods/dough`)                   | 1x Raw Pasta                          |
+| Minced Beef         | Raw Beef (`minecraft:beef`)                    | 2x Minced Beef                        |
+| Pumpkin Slice       | Pumpkin (`minecraft:pumpkin`)                  | 4x Pumpkin Slice                      |
+| Chicken Cuts        | Raw Chicken (`minecraft:chicken`)              | 2x Chicken Cuts + 1x Bone Meal        |
+| Cooked Chicken Cuts | Cooked Chicken                                 | 2x Cooked Chicken Cuts + 1x Bone Meal |
+| Cabbage Leaf        | Cabbage (`farmersdelight:cabbage`)             | 2x Cabbage Leaf                       |
+| Cod Slice           | Raw Cod (`minecraft:cod`)                      | 2x Cod Slice + 1x Bone Meal           |
+| Cooked Cod Slice    | Cooked Cod (`minecraft:cooked_cod`)            | 2x Cooked Cod Slice + 1x Bone Meal    |
+| Salmon Slice        | Raw Salmon (`minecraft:salmon`)                | 2x Salmon Slice + 1x Bone Meal        |
+| Cooked Salmon Slice | Cooked Salmon                                  | 2x Cooked Salmon Slice + 1x Bone Meal |
+| Mutton Chops        | Raw Mutton (`minecraft:mutton`)                | 2x Mutton Chops                       |
+| Cooked Mutton Chops | Cooked Mutton                                  | 2x Cooked Mutton Chops                |
+| Apple Pie Slice     | Apple Pie (`farmersdelight:apple_pie`)         | 4x Apple Pie Slice                    |
+| Chocolate Pie Slice | Chocolate Pie (`farmersdelight:chocolate_pie`) | 4x Chocolate Pie Slice                |
+| Kelp Roll Slice     | Kelp Roll (`farmersdelight:kelp_roll`)         | 3x Kelp Roll Slice                    |
+
+#### Create Filling Recipes _(spout)_
+
+| Recipe    | Ingredient                             | Fluid (250 mB)                         | Result                                 |
+|-----------|----------------------------------------|----------------------------------------|----------------------------------------|
+| Apple Pie | Pie Crust (`farmersdelight:pie_crust`) | Apple Pulp (`#create_new_foods:apple`) | Apple Pie (`farmersdelight:apple_pie`) |
+
+---
+
+### More Delight
+
+When [More Delight](https://modrinth.com/mod/more-delight) is installed, a corrected Create **cutting** recipe is provided for diced potatoes. 
+More Delight ships its own recipe but uses incorrect field names that Create silently ignores; this mod overrides it with the correct format.
+
+> Requires both **Create** and **More Delight**.
+
+#### Create Cutting Recipes _(mechanical saw)_
+
+| Recipe         | Ingredient                    | Result            |
+|----------------|-------------------------------|-------------------|
+| Diced Potatoes | Potato (`minecraft:potatoes`) | 1x Diced Potatoes |
+| Bread Slice    | Bread (`minecraft:bread`)     | 4x Bread Slice    |
 
 ---
 
@@ -395,11 +441,11 @@ TFF's overlapping items gain the same status effects as their Create: New Foods 
 
 TFF's flavored items can be produced using the Create filling machine, using your Ice Cream or Cupcake base:
 
-| Recipe                       | Ingredient  | Fluid (250 mB)                                    | Result                |
-|------------------------------|-------------|---------------------------------------------------|-----------------------|
-| Vanilla Ice Cream (TFF)      | Ice Cream   | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Ice Cream     |
-| Chocolate Ice Cream (TFF)    | Ice Cream   | Chocolate (`#c:chocolate`)                        | Chocolate Ice Cream   |
-| Sweet Berry Ice Cream (TFF)  | Ice Cream   | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Ice Cream |
-| Vanilla Cupcake (TFF)        | Cupcake     | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Cupcake       |
-| Chocolate Cupcake (TFF)      | Cupcake     | Chocolate (`#c:chocolate`)                        | Chocolate Cupcake     |
-| Sweet Berry Cupcake (TFF)    | Cupcake     | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Cupcake   |
+| Recipe                      | Ingredient | Fluid (250 mB)                                    | Result                |
+|-----------------------------|------------|---------------------------------------------------|-----------------------|
+| Vanilla Ice Cream (TFF)     | Ice Cream  | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Ice Cream     |
+| Chocolate Ice Cream (TFF)   | Ice Cream  | Chocolate (`#c:chocolate`)                        | Chocolate Ice Cream   |
+| Sweet Berry Ice Cream (TFF) | Ice Cream  | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Ice Cream |
+| Vanilla Cupcake (TFF)       | Cupcake    | Vanilla (`#create_new_foods:vanilla`)             | Vanilla Cupcake       |
+| Chocolate Cupcake (TFF)     | Cupcake    | Chocolate (`#c:chocolate`)                        | Chocolate Cupcake     |
+| Sweet Berry Cupcake (TFF)   | Cupcake    | Sweet Berry Pulp (`#create_new_foods:sweetberry`) | Sweet Berry Cupcake   |

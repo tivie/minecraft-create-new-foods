@@ -1,0 +1,24 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "farmersdelight"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    "create:wheat_flour",
+    "create:wheat_flour",
+    "create:wheat_flour",
+    "#c:eggs"
+  ],
+  "results": [
+    {
+      "id": "farmersdelight:wheat_dough",
+      "count": 3
+    }
+  ]
+}
