@@ -1,3 +1,10 @@
+## 1.0.4
+
+### Features
+- **harvest apple trees** apple trees are harvestable by Create harvester.
+- **apple tree** add apple tress with apples. Can be harvested with right click
+
+
 ## 1.0.3
 
 ### Features

@@ -22,6 +22,8 @@ and others...
 ## Contents
 
 - [Crops](#crops)
+  - [Apple Tree](#apple-tree-create_new_foodsapple_leaves)
+  - [Vanilla](#vanilla-create_new_foodsvanilla_bean)
 - [Fluids](#fluids)
 - [Food Items](#food-items)
 - [Recipes](#recipes)
@@ -36,6 +38,20 @@ and others...
 ---
 
 ## Crops
+
+### Apple Tree (`create_new_foods:apple_leaves`)
+
+A custom apple tree that grows apples directly on its leaves.
+
+- **Generated from:** Apple Sapling (`create_new_foods:apple_sapling`)
+- **Fruit state:** Leaves can toggle between normal and apple-bearing (`has_apples=true`)
+- **Growth:** Apples appear over time through random ticks while the chunk is loaded
+- **Harvest:** Right-click apple-bearing leaves to collect 1 apple without destroying the leaves
+- **Bone meal:** Supported on apple leaves without apples; forces apple growth
+- **Create harvester:** Supported — the Create Fly harvester can collect apples from apple-bearing leaves without breaking the leaves
+- **Contraption behavior:** Apple leaves are treated as pass-through for Create contraptions so orchard harvesters can move through the canopy cleanly
+
+---
 
 ### Vanilla (`create_new_foods:vanilla_bean`)
 
