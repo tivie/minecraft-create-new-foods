@@ -5,7 +5,8 @@
 
 A Fabric mod for Minecraft that extends [**Create Fly**](https://modrinth.com/mod/create-fly) and
 adds new fluids, crops, food items, and Create-compatible recipes. It also adds compatibility with
-[Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated) and [Travel Friendly Food](https://modrinth.com/mod/travel-friendly-food).
+[Farmer's Delight Refabricated](https://modrinth.com/mod/farmers-delight-refabricated), [More Delight](https://modrinth.com/mod/more-delight), [[Travel Friendly Food](https://modrinth.com/mod/travel-friendly-food)
+and others...
 
 **Dependencies:**
  - [**Create Fly**](https://modrinth.com/mod/create-fly)

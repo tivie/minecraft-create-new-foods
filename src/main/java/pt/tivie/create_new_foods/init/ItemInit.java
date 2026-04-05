@@ -44,9 +44,17 @@ public class ItemInit {
     public static final BucketItem APPLE_PULP_BUCKET = registerBucketItem("apple_pulp_bucket", FluidInit.APPLE_PULP);
     public static final BucketItem GLOW_BERRY_PULP_BUCKET = registerBucketItem("glow_berry_pulp_bucket", FluidInit.GLOW_BERRY_PULP);
 
-    // Crops
+    // Crops & blocks
     public static final Item VANILLA_BEAN = registerItem("vanilla_bean",
             settings -> new BlockItem(BlockInit.VANILLA_BEAN, settings),
+            new Item.Settings());
+
+    public static final Item APPLE_LEAVES = registerItem("apple_leaves",
+            settings -> new BlockItem(BlockInit.APPLE_LEAVES, settings),
+            new Item.Settings());
+
+    public static final Item APPLE_SAPLING = registerItem("apple_sapling",
+            settings -> new BlockItem(BlockInit.APPLE_SAPLING, settings),
             new Item.Settings());
 
     // Items

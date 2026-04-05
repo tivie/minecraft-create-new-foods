@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "create_new_foods:block/apple_leaves"
+  }
+}

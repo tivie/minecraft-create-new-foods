@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout_mipped",
+  "ambientocclusion": true,
+  "textures": {
+    "particle": "create_new_foods:block/apple_leaves",
+    "leaves":   "create_new_foods:block/apple_leaves",
+    "apples":   "create_new_foods:block/apple_overlay"
+  },
+  "elements": [
+    {
+      "comment": "Full leaf cube — tintindex 0 picks up the biome foliage color",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0, "cullface": "down"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0, "cullface": "up"},
+        "north": {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0, "cullface": "north"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0, "cullface": "south"},
+        "west":  {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0, "cullface": "west"},
+        "east":  {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0, "cullface": "east"}
+      }
+    },
+    {
+      "comment": "Apple overlay — plane along Z axis, no tintindex so it stays red",
+      "from": [0.8, 0.8, 8],
+      "to":   [15.2, 15.2, 8],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#apples"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#apples"}
+      }
+    },
+    {
+      "comment": "Apple overlay — plane along X axis, crossing the first",
+      "from": [8, 0.8, 0.8],
+      "to":   [8, 15.2, 15.2],
+      "faces": {
+        "west": {"uv": [0, 0, 16, 16], "texture": "#apples"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#apples"}
+      }
+    }
+  ]
+}

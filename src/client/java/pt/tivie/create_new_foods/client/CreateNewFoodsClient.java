@@ -4,8 +4,12 @@ import com.zurrtum.create.client.AllFluidConfigs;
 import com.zurrtum.create.client.infrastructure.fluid.FluidConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorResolverRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.minecraft.world.biome.ColorResolver;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.minecraft.world.biome.FoliageColors;
 import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.texture.SpriteAtlasTexture;
@@ -16,6 +20,10 @@ import pt.tivie.create_new_foods.init.BlockInit;
 import pt.tivie.create_new_foods.init.FluidInit;
 
 public class CreateNewFoodsClient implements ClientModInitializer {
+
+    // Must be a registered static instance — ClientWorld.getColor() rejects unregistered lambdas
+    private static final ColorResolver FOLIAGE_COLOR_RESOLVER = (biome, x, z) -> biome.getFoliageColor();
+
 
     private void registerFluid(com.zurrtum.create.infrastructure.fluids.FlowableFluid fluid, String name, int fogColor, float fogDistance) {
         FluidRenderHandlerRegistry.INSTANCE.register(
@@ -43,7 +51,19 @@ public class CreateNewFoodsClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
                 BlockInit.VANILLA_BEAN,
-                BlockInit.VANILLA_ORCHID_TOP);
+                BlockInit.VANILLA_ORCHID_TOP,
+                BlockInit.APPLE_SAPLING);
+
+        BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT_MIPPED,
+                BlockInit.APPLE_LEAVES);
+
+        // Register resolver so ClientWorld can cache it, then use it for block tinting
+        ColorResolverRegistry.register(FOLIAGE_COLOR_RESOLVER);
+        ColorProviderRegistry.BLOCK.register(
+                (state, world, pos, tintIndex) -> world != null && pos != null
+                        ? world.getColor(pos, FOLIAGE_COLOR_RESOLVER)
+                        : FoliageColors.DEFAULT,
+                BlockInit.APPLE_LEAVES);
 
         registerFluid(FluidInit.PUMPKIN_PULP,    "pumpkin_pulp",    0xC4621D, 96.0f / 16f);
         registerFluid(FluidInit.SWEETBERRY_PULP, "sweetberry_pulp", 0x8B1919, 96.0f / 16f);

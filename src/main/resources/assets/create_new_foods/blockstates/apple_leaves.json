@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "has_apples=false": {"model": "create_new_foods:block/apple_leaves"},
+    "has_apples=true":  {"model": "create_new_foods:block/apple_leaves_with_apples"}
+  }
+}

@@ -22,5 +22,18 @@ public class WorldGenInit {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(RegistryKeys.PLACED_FEATURE, CreateNewFoods.id("vanilla_orchid"))
         );
+
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(
+                        BiomeKeys.FOREST,
+                        BiomeKeys.FLOWER_FOREST,
+                        BiomeKeys.BIRCH_FOREST,
+                        BiomeKeys.OLD_GROWTH_BIRCH_FOREST,
+                        BiomeKeys.PLAINS,
+                        BiomeKeys.MEADOW
+                ),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                RegistryKey.of(RegistryKeys.PLACED_FEATURE, CreateNewFoods.id("apple_tree"))
+        );
     }
 }

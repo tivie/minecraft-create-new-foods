@@ -3,14 +3,19 @@ package pt.tivie.create_new_foods.init;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SaplingBlock;
+import net.minecraft.block.SaplingGenerator;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import pt.tivie.create_new_foods.CreateNewFoods;
+import pt.tivie.create_new_foods.block.AppleLeavesBlock;
 import pt.tivie.create_new_foods.block.VanillaOrchidBlock;
 import pt.tivie.create_new_foods.block.VanillaOrchidTopBlock;
+
+import java.util.Optional;
 
 import java.util.function.Function;
 
@@ -34,5 +39,24 @@ public class BlockInit {
             "vanilla_orchid_top",
             VanillaOrchidTopBlock::new,
             AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)
+    );
+
+    private static final SaplingGenerator APPLE_TREE_GROWER = new SaplingGenerator(
+            "apple_tree",
+            Optional.empty(),
+            Optional.of(RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, CreateNewFoods.id("apple_tree"))),
+            Optional.empty()
+    );
+
+    public static final AppleLeavesBlock APPLE_LEAVES = registerBlock(
+            "apple_leaves",
+            AppleLeavesBlock::new,
+            AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)
+    );
+
+    public static final SaplingBlock APPLE_SAPLING = registerBlock(
+            "apple_sapling",
+            settings -> new SaplingBlock(APPLE_TREE_GROWER, settings),
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)
     );
 }

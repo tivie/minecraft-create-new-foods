@@ -17,6 +17,8 @@ public class ItemGroupInit {
             .displayName(Text.translatable("itemGroup.create_new_foods.group"))
             .entries((displayContext, entries) -> {
                 entries.add(ItemInit.VANILLA_BEAN);
+                entries.add(ItemInit.APPLE_SAPLING);
+                entries.add(ItemInit.APPLE_LEAVES);
                 entries.add(ItemInit.PUMPKIN_PULP_BUCKET);
                 entries.add(ItemInit.SWEETBERRY_PULP_BUCKET);
                 entries.add(ItemInit.VANILLA_BUCKET);
