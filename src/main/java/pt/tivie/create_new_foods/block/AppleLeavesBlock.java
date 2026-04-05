@@ -25,8 +25,8 @@ public class AppleLeavesBlock extends TintedParticleLeavesBlock implements Ferti
 
     // Same particle emission rate as oak leaves
     private static final float LEAF_PARTICLE_CHANCE = 0.02f;
-    // ~1% chance per random tick to grow apples (roughly every few in-game days per leaf block)
-    private static final int APPLE_GROW_CHANCE = 100;
+    // ~5% chance per random tick to grow apples for faster orchard-style production
+    private static final int APPLE_GROW_CHANCE = 20;
 
     public AppleLeavesBlock(Settings settings) {
         super(LEAF_PARTICLE_CHANCE, settings);

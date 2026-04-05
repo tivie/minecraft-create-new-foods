@@ -4,6 +4,7 @@
   "package": "pt.tivie.create_new_foods.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ContraptionColliderMixin",
     "HarvesterMixin"
   ],
   "injectors": {
