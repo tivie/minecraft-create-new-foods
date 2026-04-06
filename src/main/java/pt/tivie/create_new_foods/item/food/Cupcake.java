@@ -1,108 +1,31 @@
 package pt.tivie.create_new_foods.item.food;
 
-import net.minecraft.component.type.ConsumableComponent;
-import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 
 public class Cupcake {
 
-    public static Item.Settings getCupcakeBase() {
+    public static Item.Settings getCupcakeVanilla()    { return FlavoredFood.food(base(), FlavoredFood.VANILLA); }
+    public static Item.Settings getCupcakeChocolate()  { return FlavoredFood.food(base(), FlavoredFood.CHOCOLATE); }
+    public static Item.Settings getCupcakePumpkin()    { return FlavoredFood.food(base(), FlavoredFood.PUMPKIN); }
+    public static Item.Settings getCupcakeSweetberry() { return FlavoredFood.food(base(), FlavoredFood.SWEET_BERRY); }
+    public static Item.Settings getCupcakeMelon()      { return FlavoredFood.food(base(), FlavoredFood.MELON); }
+    public static Item.Settings getCupcakeApple()      { return FlavoredFood.food(base(), FlavoredFood.APPLE); }
+    public static Item.Settings getCupcakeGlowBerry()  { return FlavoredFood.food(base(), FlavoredFood.GLOW_BERRY); }
 
-        FoodComponent foodComponent = new FoodComponent.Builder()
+    public static Item.Settings getCupcakeBase() {
+        FoodComponent food = new FoodComponent.Builder()
                 .nutrition(2)
                 .saturationModifier(0.1F)
                 .build();
-
-        return new Item.Settings().food(foodComponent);
+        return new Item.Settings().food(food);
     }
 
-    // used as base for all cupcakes
-    private static FoodComponent.Builder createCupcake() {
+    private static FoodComponent base() {
         return new FoodComponent.Builder()
                 .nutrition(5)
                 .saturationModifier(0.6F)
-                .alwaysEdible();
-    }
-
-    public static Item.Settings getCupcakeChocolate() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 12 * 20, 1),
-                        1.0f
-                ))
+                .alwaysEdible()
                 .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
     }
-
-    public static Item.Settings getCupcakePumpkin() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.SPEED, 12 * 20, 1),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
-    }
-
-    public static Item.Settings getCupcakeSweetberry() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.REGENERATION, 12 * 20, 1),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
-    }
-
-    public static Item.Settings getCupcakeVanilla() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 12 * 20, 1),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
-    }
-
-    public static Item.Settings getCupcakeMelon() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.ABSORPTION, 12 * 20, 1),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
-    }
-
-    public static Item.Settings getCupcakeApple() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.STRENGTH, 12 * 20, 1),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
-    }
-
-    public static Item.Settings getCupcakeGlowBerry() {
-        FoodComponent foodComponent = createCupcake().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.food()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.GLOWING, 12 * 20, 1),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent);
-    }
-
 }

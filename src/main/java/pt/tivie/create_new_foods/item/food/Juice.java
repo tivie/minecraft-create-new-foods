@@ -11,77 +11,33 @@ import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 
 public class Juice {
 
-    private static FoodComponent.Builder createJuice() {
+    public static Item.Settings getJuiceApple()      { return juice(FlavoredFood.APPLE); }
+    public static Item.Settings getJuiceGlowBerry()  { return juice(FlavoredFood.GLOW_BERRY); }
+    public static Item.Settings getJuiceMelon()      { return juice(FlavoredFood.MELON); }
+    public static Item.Settings getJuicePumpkin()    { return juice(FlavoredFood.PUMPKIN); }
+    public static Item.Settings getJuiceSweetberry() { return juice(FlavoredFood.SWEET_BERRY); }
+
+    // Tutti frutti grants all flavors at once — too many effects for the shared helper
+    public static Item.Settings getJuiceTuttiFrutti() {
+        ConsumableComponent consumable = ConsumableComponents.drink()
+                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.STRENGTH,     60 * 20, 1), 1.0f))
+                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.GLOWING,      60 * 20, 1), 1.0f))
+                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.ABSORPTION,   60 * 20, 1), 1.0f))
+                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.SPEED,        60 * 20, 1), 1.0f))
+                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 60 * 20, 1), 1.0f))
+                .build();
+        return new Item.Settings().food(base(), consumable).recipeRemainder(Items.GLASS_BOTTLE);
+    }
+
+    private static Item.Settings juice(StatusEffectInstance effect) {
+        return FlavoredFood.drink(base(), effect).recipeRemainder(Items.GLASS_BOTTLE);
+    }
+
+    private static FoodComponent base() {
         return new FoodComponent.Builder()
                 .nutrition(2)
                 .saturationModifier(0.3F)
-                .alwaysEdible();
-    }
-
-    public static Item.Settings getJuiceApple() {
-        FoodComponent foodComponent = createJuice().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.drink()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.STRENGTH, 12 * 20, 0),
-                        1.0f
-                ))
+                .alwaysEdible()
                 .build();
-        return new Item.Settings().food(foodComponent, consumableComponent).recipeRemainder(Items.GLASS_BOTTLE);
-    }
-
-    public static Item.Settings getJuiceGlowBerry() {
-        FoodComponent foodComponent = createJuice().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.drink()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.GLOWING, 12 * 20, 0),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent).recipeRemainder(Items.GLASS_BOTTLE);
-    }
-
-    public static Item.Settings getJuiceMelon() {
-        FoodComponent foodComponent = createJuice().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.drink()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.ABSORPTION, 12 * 20, 0),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent).recipeRemainder(Items.GLASS_BOTTLE);
-    }
-
-    public static Item.Settings getJuicePumpkin() {
-        FoodComponent foodComponent = createJuice().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.drink()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.SPEED, 12 * 20, 0),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent).recipeRemainder(Items.GLASS_BOTTLE);
-    }
-
-    public static Item.Settings getJuiceSweetberry() {
-        FoodComponent foodComponent = createJuice().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.drink()
-                .consumeEffect(new ApplyEffectsConsumeEffect(
-                        new StatusEffectInstance(StatusEffects.REGENERATION, 12 * 20, 0),
-                        1.0f
-                ))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent).recipeRemainder(Items.GLASS_BOTTLE);
-    }
-
-    public static Item.Settings getJuiceTuttiFrutti() {
-        FoodComponent foodComponent = createJuice().build();
-        ConsumableComponent consumableComponent = ConsumableComponents.drink()
-                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.STRENGTH,    60 * 20, 0), 1.0f))
-                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.GLOWING,     60 * 20, 0), 1.0f))
-                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.ABSORPTION,  60 * 20, 0), 1.0f))
-                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.SPEED,       60 * 20, 0), 1.0f))
-                .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 60 * 20, 0), 1.0f))
-                .build();
-        return new Item.Settings().food(foodComponent, consumableComponent).recipeRemainder(Items.GLASS_BOTTLE);
     }
 }

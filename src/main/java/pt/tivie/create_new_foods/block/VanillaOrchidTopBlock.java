@@ -3,7 +3,6 @@ package pt.tivie.create_new_foods.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -35,7 +34,7 @@ public class VanillaOrchidTopBlock extends Block {
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState below = world.getBlockState(pos.down());
-        return below.isOf(BlockInit.VANILLA_BEAN) && below.get(SweetBerryBushBlock.AGE) == SweetBerryBushBlock.MAX_AGE;
+        return below.isOf(BlockInit.VANILLA_BEAN) && below.get(VanillaOrchidBlock.AGE) == VanillaOrchidBlock.MAX_AGE;
     }
 
     @Override
@@ -50,7 +49,7 @@ public class VanillaOrchidTopBlock extends Block {
             Random random
     ) {
         if (direction == Direction.DOWN) {
-            if (!neighborState.isOf(BlockInit.VANILLA_BEAN) || neighborState.get(SweetBerryBushBlock.AGE) != SweetBerryBushBlock.MAX_AGE) {
+            if (!neighborState.isOf(BlockInit.VANILLA_BEAN) || neighborState.get(VanillaOrchidBlock.AGE) != VanillaOrchidBlock.MAX_AGE) {
                 return Blocks.AIR.getDefaultState();
             }
         }
@@ -62,8 +61,8 @@ public class VanillaOrchidTopBlock extends Block {
         // Reset the lower block to age 1 so the plant survives being broken from the top
         BlockPos lowerPos = pos.down();
         BlockState lowerState = world.getBlockState(lowerPos);
-        if (lowerState.isOf(BlockInit.VANILLA_BEAN) && lowerState.get(SweetBerryBushBlock.AGE) == SweetBerryBushBlock.MAX_AGE) {
-            world.setBlockState(lowerPos, lowerState.with(SweetBerryBushBlock.AGE, 1), Block.NOTIFY_LISTENERS);
+        if (lowerState.isOf(BlockInit.VANILLA_BEAN) && lowerState.get(VanillaOrchidBlock.AGE) == VanillaOrchidBlock.MAX_AGE) {
+            world.setBlockState(lowerPos, lowerState.with(VanillaOrchidBlock.AGE, 1), Block.NOTIFY_LISTENERS);
         }
         return super.onBreak(world, pos, state, player);
     }
@@ -72,13 +71,13 @@ public class VanillaOrchidTopBlock extends Block {
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         BlockPos lowerPos = pos.down();
         BlockState lowerState = world.getBlockState(lowerPos);
-        if (lowerState.isOf(BlockInit.VANILLA_BEAN) && lowerState.get(SweetBerryBushBlock.AGE) == SweetBerryBushBlock.MAX_AGE) {
+        if (lowerState.isOf(BlockInit.VANILLA_BEAN) && lowerState.get(VanillaOrchidBlock.AGE) == VanillaOrchidBlock.MAX_AGE) {
             if (world instanceof ServerWorld serverWorld) {
                 int count = 1 + serverWorld.random.nextInt(2);
                 Block.dropStack(serverWorld, pos, new ItemStack(ItemInit.VANILLA_BEAN, count));
                 serverWorld.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS,
                         1.0F, 0.8F + serverWorld.random.nextFloat() * 0.4F);
-                BlockState newLowerState = lowerState.with(SweetBerryBushBlock.AGE, 1);
+                BlockState newLowerState = lowerState.with(VanillaOrchidBlock.AGE, 1);
                 serverWorld.setBlockState(lowerPos, newLowerState, Block.NOTIFY_LISTENERS);
                 serverWorld.breakBlock(pos, false);
                 serverWorld.emitGameEvent(GameEvent.BLOCK_CHANGE, lowerPos, GameEvent.Emitter.of(player, newLowerState));
