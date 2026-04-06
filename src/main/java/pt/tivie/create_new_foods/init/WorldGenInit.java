@@ -35,5 +35,17 @@ public class WorldGenInit {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(RegistryKeys.PLACED_FEATURE, CreateNewFoods.id("apple_tree"))
         );
+
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(
+                        BiomeKeys.JUNGLE,
+                        BiomeKeys.SPARSE_JUNGLE,
+                        BiomeKeys.SAVANNA,
+                        BiomeKeys.SAVANNA_PLATEAU,
+                        BiomeKeys.WINDSWEPT_SAVANNA
+                ),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                RegistryKey.of(RegistryKeys.PLACED_FEATURE, CreateNewFoods.id("orange_tree"))
+        );
     }
 }

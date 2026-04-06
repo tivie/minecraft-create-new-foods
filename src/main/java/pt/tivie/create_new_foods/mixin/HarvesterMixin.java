@@ -5,7 +5,6 @@ import com.zurrtum.create.api.behaviour.movement.MovementBehaviour;
 import com.zurrtum.create.content.contraptions.behaviour.MovementContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -16,15 +15,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import pt.tivie.create_new_foods.block.AppleLeavesBlock;
+import pt.tivie.create_new_foods.block.HarvestableLeavesBlock;
 
 @Mixin(value = HarvesterMovementBehaviour.class, remap = false)
 public class HarvesterMixin {
 
     /**
-     * Custom-harvest apples without running Create's default destroy/replant flow.
-     * Apple leaves are not a normal crop block, so breaking first causes leaf drops and
-     * only restores the block afterwards. We want pure "pick fruit and keep leaves" behavior.
+     * Custom-harvest fruit leaves without running Create's default destroy/replant flow.
+     * Fruit leaves are not normal crop blocks — we want pure "pick fruit and keep leaves" behaviour.
      */
     @Inject(method = "visitNewPosition", at = @At("HEAD"), cancellable = true)
     private void onVisitNewPosition(MovementContext context, BlockPos pos, CallbackInfo ci) {
@@ -34,17 +32,17 @@ public class HarvesterMixin {
         }
 
         BlockState state = world.getBlockState(pos);
-        if (!(state.getBlock() instanceof AppleLeavesBlock)) {
+        if (!(state.getBlock() instanceof HarvestableLeavesBlock fruitLeaves)) {
             return;
         }
 
-        if (!state.get(AppleLeavesBlock.HAS_APPLES)) {
+        if (!state.get(fruitLeaves.getHasFruitProperty())) {
             ci.cancel();
             return;
         }
 
-        ((MovementBehaviour) (Object) this).collectOrDropItem(context, new ItemStack(Items.APPLE));
-        world.setBlockState(pos, state.with(AppleLeavesBlock.HAS_APPLES, false));
+        ((MovementBehaviour) (Object) this).collectOrDropItem(context, new ItemStack(fruitLeaves.getFruitItem()));
+        world.setBlockState(pos, state.with(fruitLeaves.getHasFruitProperty(), false));
         world.playSound(null, pos, SoundEvents.BLOCK_GRASS_HIT, SoundCategory.BLOCKS,
                 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(state));
@@ -52,26 +50,25 @@ public class HarvesterMixin {
     }
 
     /**
-     * Allow harvesting only when has_apples=true; block when false to prevent
+     * Allow harvesting only when fruit is present; block otherwise to prevent
      * the harvester from treating LeavesBlock.DISTANCE (an IntProperty) as a crop age.
      */
     @Inject(method = "isValidCrop", at = @At("HEAD"), cancellable = true)
     private void onIsValidCrop(World world, BlockPos pos, BlockState state,
                                CallbackInfoReturnable<Boolean> cir) {
-        if (state.getBlock() instanceof AppleLeavesBlock) {
-            cir.setReturnValue(state.get(AppleLeavesBlock.HAS_APPLES));
+        if (state.getBlock() instanceof HarvestableLeavesBlock fruitLeaves) {
+            cir.setReturnValue(state.get(fruitLeaves.getHasFruitProperty()));
         }
     }
 
     /**
-     * Mark apple leaves as a valid harvester target so terrain collision lets the
-     * contraption pass through them. visitNewPosition above cancels the default
-     * break logic for both states and performs custom harvesting only when ripe.
+     * Mark fruit leaves as valid harvester targets so terrain collision lets the
+     * contraption pass through them.
      */
     @Inject(method = "isValidOther", at = @At("HEAD"), cancellable = true)
     private void onIsValidOther(World world, BlockPos pos, BlockState state,
                                 CallbackInfoReturnable<Boolean> cir) {
-        if (state.getBlock() instanceof AppleLeavesBlock) {
+        if (state.getBlock() instanceof HarvestableLeavesBlock) {
             cir.setReturnValue(true);
         }
     }

@@ -52,10 +52,12 @@ public class CreateNewFoodsClient implements ClientModInitializer {
         BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
                 BlockInit.VANILLA_BEAN,
                 BlockInit.VANILLA_ORCHID_TOP,
-                BlockInit.APPLE_SAPLING);
+                BlockInit.APPLE_SAPLING,
+                BlockInit.ORANGE_SAPLING);
 
         BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT_MIPPED,
-                BlockInit.APPLE_LEAVES);
+                BlockInit.APPLE_LEAVES,
+                BlockInit.ORANGE_LEAVES);
 
         // Register resolver so ClientWorld can cache it, then use it for block tinting
         ColorResolverRegistry.register(FOLIAGE_COLOR_RESOLVER);
@@ -63,7 +65,8 @@ public class CreateNewFoodsClient implements ClientModInitializer {
                 (state, world, pos, tintIndex) -> world != null && pos != null
                         ? world.getColor(pos, FOLIAGE_COLOR_RESOLVER)
                         : FoliageColors.DEFAULT,
-                BlockInit.APPLE_LEAVES);
+                BlockInit.APPLE_LEAVES,
+                BlockInit.ORANGE_LEAVES);
 
         registerFluid(FluidInit.PUMPKIN_PULP,    "pumpkin_pulp",    0xC4621D, 96.0f / 16f);
         registerFluid(FluidInit.SWEETBERRY_PULP, "sweetberry_pulp", 0x8B1919, 96.0f / 16f);

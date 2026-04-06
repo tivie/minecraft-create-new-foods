@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "has_oranges=false": {"model": "create_new_foods:block/orange_leaves"},
+    "has_oranges=true":  {"model": "create_new_foods:block/orange_leaves_with_oranges"}
+  }
+}

@@ -12,6 +12,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import pt.tivie.create_new_foods.CreateNewFoods;
 import pt.tivie.create_new_foods.block.AppleLeavesBlock;
+import pt.tivie.create_new_foods.block.OrangeLeavesBlock;
 import pt.tivie.create_new_foods.block.VanillaOrchidBlock;
 import pt.tivie.create_new_foods.block.VanillaOrchidTopBlock;
 
@@ -57,6 +58,25 @@ public class BlockInit {
     public static final SaplingBlock APPLE_SAPLING = registerBlock(
             "apple_sapling",
             settings -> new SaplingBlock(APPLE_TREE_GROWER, settings),
+            AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)
+    );
+
+    private static final SaplingGenerator ORANGE_TREE_GROWER = new SaplingGenerator(
+            "orange_tree",
+            Optional.empty(),
+            Optional.of(RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, CreateNewFoods.id("orange_tree"))),
+            Optional.empty()
+    );
+
+    public static final OrangeLeavesBlock ORANGE_LEAVES = registerBlock(
+            "orange_leaves",
+            OrangeLeavesBlock::new,
+            AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)
+    );
+
+    public static final SaplingBlock ORANGE_SAPLING = registerBlock(
+            "orange_sapling",
+            settings -> new SaplingBlock(ORANGE_TREE_GROWER, settings),
             AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)
     );
 }

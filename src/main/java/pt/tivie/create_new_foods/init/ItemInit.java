@@ -11,6 +11,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import pt.tivie.create_new_foods.CreateNewFoods;
+import net.minecraft.component.type.FoodComponent;
 import pt.tivie.create_new_foods.item.food.Cupcake;
 import pt.tivie.create_new_foods.item.food.IceCream;
 import pt.tivie.create_new_foods.item.food.Juice;
@@ -57,7 +58,22 @@ public class ItemInit {
             settings -> new BlockItem(BlockInit.APPLE_SAPLING, settings),
             new Item.Settings());
 
-    // Items
+    public static final Item ORANGE_LEAVES = registerItem("orange_leaves",
+            settings -> new BlockItem(BlockInit.ORANGE_LEAVES, settings),
+            new Item.Settings());
+
+    public static final Item ORANGE_SAPLING = registerItem("orange_sapling",
+            settings -> new BlockItem(BlockInit.ORANGE_SAPLING, settings),
+            new Item.Settings());
+
+    // Fruit
+    public static final Item ORANGE = registerItem("orange", Item::new,
+            new Item.Settings().food(new FoodComponent.Builder()
+                    .nutrition(4)
+                    .saturationModifier(0.3F)
+                    .build()));
+
+    // Ice creams
     public static final Item ICECREAM_CONE = registerItem("icecream_cone", Item::new, IceCream.getIceCreamCone());
     public static final Item ICECREAM = registerItem("icecream", Item::new, IceCream.getIceCream());
     public static final Item ICECREAM_CHOCOLATE = registerItem("icecream_chocolate", Item::new, IceCream.getIceCreamChocolate());
@@ -66,6 +82,7 @@ public class ItemInit {
     public static final Item ICECREAM_VANILLA = registerItem("icecream_vanilla", Item::new, IceCream.getIceCreamVanilla());
     public static final Item ICECREAM_MELON = registerItem("icecream_melon", Item::new, IceCream.getIceCreamMelon());
     public static final Item ICECREAM_APPLE = registerItem("icecream_apple", Item::new, IceCream.getIceCreamApple());
+    public static final Item ICECREAM_GLOW_BERRY = registerItem("icecream_glow_berry", Item::new, IceCream.getIceCreamGlowBerry());
 
     // Baking
     public static final Item CUPCAKE_BASE = registerItem("cupcake_base", Item::new, Cupcake.getCupcakeBase());
@@ -76,8 +93,6 @@ public class ItemInit {
     public static final Item CUPCAKE_MELON = registerItem("cupcake_melon", Item::new, Cupcake.getCupcakeMelon());
     public static final Item CUPCAKE_APPLE = registerItem("cupcake_apple", Item::new, Cupcake.getCupcakeApple());
     public static final Item CUPCAKE_GLOW_BERRY = registerItem("cupcake_glow_berry", Item::new, Cupcake.getCupcakeGlowBerry());
-
-    public static final Item ICECREAM_GLOW_BERRY = registerItem("icecream_glow_berry", Item::new, IceCream.getIceCreamGlowBerry());
 
     // Juice
     public static final Item JUICE_APPLE = registerItem("juice_apple", Item::new, Juice.getJuiceApple());

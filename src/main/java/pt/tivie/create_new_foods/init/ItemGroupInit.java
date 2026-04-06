@@ -19,6 +19,9 @@ public class ItemGroupInit {
                 entries.add(ItemInit.VANILLA_BEAN);
                 entries.add(ItemInit.APPLE_SAPLING);
                 entries.add(ItemInit.APPLE_LEAVES);
+                entries.add(ItemInit.ORANGE);
+                entries.add(ItemInit.ORANGE_SAPLING);
+                entries.add(ItemInit.ORANGE_LEAVES);
                 entries.add(ItemInit.PUMPKIN_PULP_BUCKET);
                 entries.add(ItemInit.SWEETBERRY_PULP_BUCKET);
                 entries.add(ItemInit.VANILLA_BUCKET);
