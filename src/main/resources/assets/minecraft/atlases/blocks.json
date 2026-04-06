@@ -47,6 +47,14 @@
     {
       "type": "single",
       "resource": "create_new_foods:fluid/glow_berry_pulp_flow"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/orange_pulp_still"
+    },
+    {
+      "type": "single",
+      "resource": "create_new_foods:fluid/orange_pulp_flow"
     }
   ]
 }

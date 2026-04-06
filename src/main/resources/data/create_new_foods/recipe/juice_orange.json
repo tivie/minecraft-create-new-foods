@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "minecraft:potion",
+    "create_new_foods:orange_pulp_bucket"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_new_foods:juice_orange"
+  }
+}
