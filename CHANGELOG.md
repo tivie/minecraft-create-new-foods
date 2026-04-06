@@ -1,3 +1,13 @@
+## 1.0.5
+
+### Features
+- **oranges**: add oranges and orange trees, orange pulp fluid and bucket and respective textures, recipes and
+  advancements
+
+### Chores
+- refactor and clean up code
+
+
 ## 1.0.4
 
 ### Features
