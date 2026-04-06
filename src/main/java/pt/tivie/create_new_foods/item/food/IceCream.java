@@ -14,6 +14,7 @@ public class IceCream {
     public static Item.Settings getIceCreamMelon()      { return FlavoredFood.food(base(), FlavoredFood.MELON); }
     public static Item.Settings getIceCreamApple()      { return FlavoredFood.food(base(), FlavoredFood.APPLE); }
     public static Item.Settings getIceCreamGlowBerry()  { return FlavoredFood.food(base(), FlavoredFood.GLOW_BERRY); }
+    public static Item.Settings getIceCreamOrange()     { return FlavoredFood.food(base(), FlavoredFood.ORANGE); }
 
     public static Item.Settings getIceCreamCone() {
         FoodComponent food = new FoodComponent.Builder()

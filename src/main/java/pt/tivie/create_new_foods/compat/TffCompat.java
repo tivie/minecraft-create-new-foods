@@ -22,14 +22,14 @@ public class TffCompat {
             apply(context, "vanilla_ice_cream",
                     new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 12 * 20, 1));
             apply(context, "chocolate_ice_cream",
-                    new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 12 * 20, 1));
+                    new StatusEffectInstance(StatusEffects.HASTE, 12 * 20, 1));
             apply(context, "sweet_berry_ice_cream",
                     new StatusEffectInstance(StatusEffects.REGENERATION, 12 * 20, 1));
             // Cupcakes
             apply(context, "vanilla_cupcake",
                     new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 12 * 20, 1));
             apply(context, "chocolate_cupcake",
-                    new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 12 * 20, 1));
+                    new StatusEffectInstance(StatusEffects.HASTE, 12 * 20, 1));
             apply(context, "sweet_berry_cupcake",
                     new StatusEffectInstance(StatusEffects.REGENERATION, 12 * 20, 1));
         });

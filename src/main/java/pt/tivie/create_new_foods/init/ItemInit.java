@@ -44,6 +44,7 @@ public class ItemInit {
     public static final BucketItem MELON_PULP_BUCKET = registerBucketItem("melon_pulp_bucket", FluidInit.MELON_PULP);
     public static final BucketItem APPLE_PULP_BUCKET = registerBucketItem("apple_pulp_bucket", FluidInit.APPLE_PULP);
     public static final BucketItem GLOW_BERRY_PULP_BUCKET = registerBucketItem("glow_berry_pulp_bucket", FluidInit.GLOW_BERRY_PULP);
+    public static final BucketItem ORANGE_PULP_BUCKET = registerBucketItem("orange_pulp_bucket", FluidInit.ORANGE_PULP);
 
     // Crops & blocks
     public static final Item VANILLA_BEAN = registerItem("vanilla_bean",
@@ -83,6 +84,7 @@ public class ItemInit {
     public static final Item ICECREAM_MELON = registerItem("icecream_melon", Item::new, IceCream.getIceCreamMelon());
     public static final Item ICECREAM_APPLE = registerItem("icecream_apple", Item::new, IceCream.getIceCreamApple());
     public static final Item ICECREAM_GLOW_BERRY = registerItem("icecream_glow_berry", Item::new, IceCream.getIceCreamGlowBerry());
+    public static final Item ICECREAM_ORANGE = registerItem("icecream_orange", Item::new, IceCream.getIceCreamOrange());
 
     // Baking
     public static final Item CUPCAKE_BASE = registerItem("cupcake_base", Item::new, Cupcake.getCupcakeBase());
@@ -93,6 +95,7 @@ public class ItemInit {
     public static final Item CUPCAKE_MELON = registerItem("cupcake_melon", Item::new, Cupcake.getCupcakeMelon());
     public static final Item CUPCAKE_APPLE = registerItem("cupcake_apple", Item::new, Cupcake.getCupcakeApple());
     public static final Item CUPCAKE_GLOW_BERRY = registerItem("cupcake_glow_berry", Item::new, Cupcake.getCupcakeGlowBerry());
+    public static final Item CUPCAKE_ORANGE = registerItem("cupcake_orange", Item::new, Cupcake.getCupcakeOrange());
 
     // Juice
     public static final Item JUICE_APPLE = registerItem("juice_apple", Item::new, Juice.getJuiceApple());
@@ -100,6 +103,7 @@ public class ItemInit {
     public static final Item JUICE_MELON = registerItem("juice_melon", Item::new, Juice.getJuiceMelon());
     public static final Item JUICE_PUMPKIN = registerItem("juice_pumpkin", Item::new, Juice.getJuicePumpkin());
     public static final Item JUICE_SWEETBERRY = registerItem("juice_sweetberry", Item::new, Juice.getJuiceSweetberry());
+    public static final Item JUICE_ORANGE = registerItem("juice_orange", Item::new, Juice.getJuiceOrange());
     public static final Item JUICE_TUTTI_FRUTTI = registerItem("juice_tutti_frutti", Item::new, Juice.getJuiceTuttiFrutti());
 
     // Dairy

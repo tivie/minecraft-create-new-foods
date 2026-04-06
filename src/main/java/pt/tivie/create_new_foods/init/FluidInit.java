@@ -58,4 +58,7 @@ public class FluidInit {
     public static final FlowableFluid GLOW_BERRY_PULP = registerFluid("glow_berry_pulp");
     public static final FluidBlock GLOW_BERRY_PULP_BLOCK = registerFluidBlock("glow_berry_pulp", GLOW_BERRY_PULP, MapColor.LIME);
 
+    public static final FlowableFluid ORANGE_PULP = registerFluid("orange_pulp");
+    public static final FluidBlock ORANGE_PULP_BLOCK = registerFluidBlock("orange_pulp", ORANGE_PULP, MapColor.ORANGE);
+
 }

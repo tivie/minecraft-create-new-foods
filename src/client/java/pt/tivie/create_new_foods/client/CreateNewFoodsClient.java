@@ -74,5 +74,6 @@ public class CreateNewFoodsClient implements ClientModInitializer {
         registerFluid(FluidInit.MELON_PULP,      "melon_pulp",      0xD4524A, 96.0f / 16f);
         registerFluid(FluidInit.APPLE_PULP,       "apple_pulp",       0xC8860A, 96.0f / 16f);
         registerFluid(FluidInit.GLOW_BERRY_PULP, "glow_berry_pulp", 0x7DC23E, 96.0f / 8f);
+        registerFluid(FluidInit.ORANGE_PULP,      "orange_pulp",      0xE8650A, 96.0f / 16f);
     }
 }

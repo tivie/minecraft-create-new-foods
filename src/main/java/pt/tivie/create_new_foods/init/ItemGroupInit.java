@@ -28,6 +28,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.MELON_PULP_BUCKET);
                 entries.add(ItemInit.APPLE_PULP_BUCKET);
                 entries.add(ItemInit.GLOW_BERRY_PULP_BUCKET);
+                entries.add(ItemInit.ORANGE_PULP_BUCKET);
                 entries.add(ItemInit.ICECREAM_CONE);
                 entries.add(ItemInit.ICECREAM);
                 entries.add(ItemInit.ICECREAM_CHOCOLATE);
@@ -37,6 +38,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.ICECREAM_MELON);
                 entries.add(ItemInit.ICECREAM_APPLE);
                 entries.add(ItemInit.ICECREAM_GLOW_BERRY);
+                entries.add(ItemInit.ICECREAM_ORANGE);
                 entries.add(ItemInit.CUPCAKE_BASE);
                 entries.add(ItemInit.CUPCAKE_CHOCOLATE);
                 entries.add(ItemInit.CUPCAKE_PUMPKIN);
@@ -45,11 +47,13 @@ public class ItemGroupInit {
                 entries.add(ItemInit.CUPCAKE_MELON);
                 entries.add(ItemInit.CUPCAKE_APPLE);
                 entries.add(ItemInit.CUPCAKE_GLOW_BERRY);
+                entries.add(ItemInit.CUPCAKE_ORANGE);
                 entries.add(ItemInit.JUICE_APPLE);
                 entries.add(ItemInit.JUICE_GLOW_BERRY);
                 entries.add(ItemInit.JUICE_MELON);
                 entries.add(ItemInit.JUICE_PUMPKIN);
                 entries.add(ItemInit.JUICE_SWEETBERRY);
+                entries.add(ItemInit.JUICE_ORANGE);
                 entries.add(ItemInit.JUICE_TUTTI_FRUTTI);
                 entries.add(ItemInit.YOGURT);
                 entries.add(ItemInit.YOGURT_PUMPKIN);

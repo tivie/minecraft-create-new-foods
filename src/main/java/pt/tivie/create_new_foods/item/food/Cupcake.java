@@ -12,6 +12,7 @@ public class Cupcake {
     public static Item.Settings getCupcakeMelon()      { return FlavoredFood.food(base(), FlavoredFood.MELON); }
     public static Item.Settings getCupcakeApple()      { return FlavoredFood.food(base(), FlavoredFood.APPLE); }
     public static Item.Settings getCupcakeGlowBerry()  { return FlavoredFood.food(base(), FlavoredFood.GLOW_BERRY); }
+    public static Item.Settings getCupcakeOrange()     { return FlavoredFood.food(base(), FlavoredFood.ORANGE); }
 
     public static Item.Settings getCupcakeBase() {
         FoodComponent food = new FoodComponent.Builder()

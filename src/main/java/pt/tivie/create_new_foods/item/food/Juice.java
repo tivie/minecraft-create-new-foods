@@ -16,6 +16,7 @@ public class Juice {
     public static Item.Settings getJuiceMelon()      { return juice(FlavoredFood.MELON); }
     public static Item.Settings getJuicePumpkin()    { return juice(FlavoredFood.PUMPKIN); }
     public static Item.Settings getJuiceSweetberry() { return juice(FlavoredFood.SWEET_BERRY); }
+    public static Item.Settings getJuiceOrange()     { return juice(FlavoredFood.ORANGE); }
 
     // Tutti frutti grants all flavors at once — too many effects for the shared helper
     public static Item.Settings getJuiceTuttiFrutti() {
