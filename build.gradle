@@ -30,6 +30,14 @@ fabricApi {
     configureDataGeneration {
         client = true
     }
+
+    configureTests {
+        createSourceSet = true
+        modId = "create_new_foods_test"
+        enableGameTests = true
+        enableClientGameTests = true
+        eula = true
+    }
 }
 
 repositories {
@@ -63,6 +71,10 @@ dependencies {
     // Mods create fly and farmers delight refabricated local dev runtime
     modImplementation "maven.modrinth:create-fly:${project.create_fly_version}"
     modRuntimeOnly "maven.modrinth:farmers-delight-refabricated:${project.farmers_delight_refabricated_version}"
+    modRuntimeOnly files("run/mods/travel_friendly_food-2.0.0-fabric-1.21.5-1.21.10.jar")
+    modRuntimeOnly files("run/mods/moredelight-25.07.28a-1.21.7-fabric.jar")
+
+    testImplementation "net.fabricmc:fabric-loader-junit:${project.loader_version}"
 }
 
 processResources {
@@ -90,6 +102,10 @@ tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         it.options.release.set(targetJavaVersion)
     }
+}
+
+test {
+    useJUnitPlatform()
 }
 
 def createFlyJarUrl = "https://cdn.modrinth.com/data/dKvj0eNn/versions/oYhbStma/create-fly-1.21.10-6.0.9-2.jar"

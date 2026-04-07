@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "create_new_foods_test",
+  "version": "${version}",
+  "name": "Create: New Foods Tests",
+  "icon": "assets/create_new_foods/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": [
+      "pt.tivie.create_new_foods.CreateNewFoodsGameTest"
+    ],
+    "fabric-client-gametest": [
+      "pt.tivie.create_new_foods.CreateNewFoodsClientGameTest"
+    ]
+  }
+}
