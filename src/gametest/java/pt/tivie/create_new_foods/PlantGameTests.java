@@ -1,15 +1,24 @@
 package pt.tivie.create_new_foods;
 
+import com.zurrtum.create.AllBlocks;
+import com.zurrtum.create.api.contraption.ContraptionType;
+import com.zurrtum.create.content.contraptions.Contraption;
+import com.zurrtum.create.content.contraptions.actors.harvester.HarvesterMovementBehaviour;
+import com.zurrtum.create.content.contraptions.behaviour.MovementContext;
 import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.SaplingBlock;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.structure.StructureTemplate.StructureBlockInfo;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -28,6 +37,28 @@ import java.util.List;
  * Verifies sapling growth and harvestable-leaves behaviour for apple and orange trees.
  */
 class PlantGameTests {
+
+    private static final class TestContraption extends Contraption {
+
+        TestContraption() {
+            getStorage().initialize();
+        }
+
+        @Override
+        public boolean assemble(net.minecraft.world.World world, BlockPos pos) {
+            return false;
+        }
+
+        @Override
+        public boolean canBeStabilized(Direction facing, BlockPos localPos) {
+            return false;
+        }
+
+        @Override
+        public ContraptionType getType() {
+            return null;
+        }
+    }
 
     /**
      * Calls SaplingBlock.grow() twice for both the apple and orange sapling — the first call
@@ -168,6 +199,86 @@ class PlantGameTests {
 
         if (!failures.isEmpty()) {
             throw new AssertionError("Leaves harvest failures: " + failures);
+        }
+    }
+
+    /**
+     * Creates a minimal tree shape for both apple and orange, then runs Create Fly's
+     * HarvesterMovementBehaviour over the fruit-bearing leaf block. The leaves must stay
+     * in place, their fruit property must be cleared, and the corresponding fruit item
+     * must be spawned by the harvester.
+     */
+    static void assertMechanicalHarvesterHarvestsFruitLeaves(TestSingleplayerContext singleplayer) {
+        List<String> failures = singleplayer.getServer().computeOnServer(server -> {
+            ServerWorld world = server.getOverworld();
+            List<String> fails = new ArrayList<>();
+            HarvesterMovementBehaviour behaviour = new HarvesterMovementBehaviour();
+
+            record HarvestTest(String name, BlockState leaves, BooleanProperty fruitProperty, BlockPos trunkPos, Item expectedDrop) {}
+            var tests = List.of(
+                new HarvestTest(
+                    "apple_tree",
+                    BlockInit.APPLE_LEAVES.getDefaultState().with(AppleLeavesBlock.HAS_APPLES, true),
+                    AppleLeavesBlock.HAS_APPLES,
+                    new BlockPos(0, 240, 0),
+                    Items.APPLE
+                ),
+                new HarvestTest(
+                    "orange_tree",
+                    BlockInit.ORANGE_LEAVES.getDefaultState().with(OrangeLeavesBlock.HAS_ORANGES, true),
+                    OrangeLeavesBlock.HAS_ORANGES,
+                    new BlockPos(20, 240, 0),
+                    ItemInit.ORANGE
+                )
+            );
+
+            BlockState harvesterState = AllBlocks.MECHANICAL_HARVESTER.getDefaultState()
+                .with(HorizontalFacingBlock.FACING, Direction.EAST);
+
+            for (var t : tests) {
+                BlockPos trunkBase = t.trunkPos();
+                BlockPos leafPos = trunkBase.up(2);
+                Box itemBox = Box.of(Vec3d.ofCenter(leafPos), 4, 4, 4);
+
+                for (int dx = -2; dx <= 2; dx++) {
+                    for (int dz = -2; dz <= 2; dz++) {
+                        for (int dy = 0; dy <= 4; dy++) {
+                            world.setBlockState(trunkBase.add(dx, dy, dz), Blocks.AIR.getDefaultState());
+                        }
+                    }
+                }
+
+                world.getEntitiesByType(EntityType.ITEM, itemBox, entity -> true).forEach(Entity::discard);
+
+                world.setBlockState(trunkBase, Blocks.OAK_LOG.getDefaultState());
+                world.setBlockState(trunkBase.up(), Blocks.OAK_LOG.getDefaultState());
+                world.setBlockState(leafPos, t.leaves());
+
+                MovementContext context = new MovementContext(world, new StructureBlockInfo(BlockPos.ORIGIN, harvesterState, null), new TestContraption());
+                context.position = Vec3d.ofCenter(leafPos);
+                context.motion = Vec3d.ZERO;
+                context.relativeMotion = Vec3d.ZERO;
+
+                behaviour.visitNewPosition(context, leafPos);
+
+                BlockState result = world.getBlockState(leafPos);
+                if (!result.isOf(t.leaves().getBlock())) {
+                    fails.add(t.name() + ": harvester destroyed the leaves block");
+                    continue;
+                }
+                if (result.get(t.fruitProperty())) {
+                    fails.add(t.name() + ": fruit property still true after harvester pass");
+                }
+                if (world.getEntitiesByType(EntityType.ITEM, itemBox, entity -> entity.getStack().isOf(t.expectedDrop())).isEmpty()) {
+                    fails.add(t.name() + ": no dropped " + Registries.ITEM.getId(t.expectedDrop()) + " found after harvester pass");
+                }
+            }
+
+            return fails;
+        });
+
+        if (!failures.isEmpty()) {
+            throw new AssertionError("Harvester fruit harvest failures: " + failures);
         }
     }
 }

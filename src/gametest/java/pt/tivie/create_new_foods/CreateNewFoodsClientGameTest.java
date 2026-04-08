@@ -19,6 +19,7 @@ public class CreateNewFoodsClientGameTest implements FabricClientGameTest {
             PlantGameTests.assertSaplingsGrow(singleplayer);
             PlantGameTests.assertLeavesFruitWithBonemeal(singleplayer);
             PlantGameTests.assertLeavesDropFruitOnRightClick(singleplayer);
+            PlantGameTests.assertMechanicalHarvesterHarvestsFruitLeaves(singleplayer);
         }
     }
 }
