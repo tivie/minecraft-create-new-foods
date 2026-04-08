@@ -35,7 +35,6 @@ class PlantGameTests {
      * the tree. After growth the sapling block must have been replaced; if it's still there the
      * configured feature failed to place (unregistered feature, insufficient space, or world gen
      * not loaded correctly).
-     *
      * A 7×16×7 area is cleared before planting to ensure the tree feature has room — generated
      * terrain can reach Y=200 in mountain biomes, which would cause TreeFeature to silently abort.
      */
