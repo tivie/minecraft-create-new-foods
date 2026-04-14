@@ -346,6 +346,10 @@ All mixing recipes require the **Create** mod.
 - 1x sugar
 - 250 mB milk fluid
 
+#### Cookie (8x) — requires heat
+- 1x dough (`#c:foods/dough`)
+- 1x cocoa beans
+
 #### Pumpkin Pulp
 - 1x Pumpkin + 1x Sugar
 
@@ -427,12 +431,14 @@ All recipes require both **Create** and **Farmer's Delight**.
 
 | Recipe        | Ingredients                           | Heat     | Result                   |
 |---------------|---------------------------------------|----------|--------------------------|
-| Pumpkin Pulp  | 4x Pumpkin Slice + 1x Sugar           | None     | 1,000 mB Pumpkin Pulp    |
-| Wheat Dough   | 3x Wheat Flour + 1x Egg               | None     | 3x Wheat Dough           |
-| Cabbage Leaf  | 1x Cabbage                            | None     | 2x Cabbage Leaf          |
-| Pie Crust     | 1x Dough + 250 mB Milk                | Heated   | 1x Pie Crust             |
-| Apple Cider   | 2x Apple + 1x Sugar + 1x Glass Bottle | Heated   | 1x Apple Cider           |
-| Tomato Sauce  | 2x Tomato + 1x Bowl                   | None     | 1x Tomato Sauce          |
+| Pumpkin Pulp       | 4x Pumpkin Slice + 1x Sugar           | None     | 1,000 mB Pumpkin Pulp            |
+| Wheat Dough        | 3x Wheat Flour + 1x Egg               | None     | 3x Wheat Dough                   |
+| Cabbage Leaf       | 1x Cabbage                            | None     | 2x Cabbage Leaf                  |
+| Pie Crust          | 1x Dough + 250 mB Milk                | Heated   | 1x Pie Crust                     |
+| Apple Cider        | 2x Apple + 1x Sugar + 1x Glass Bottle | Heated   | 1x Apple Cider                   |
+| Tomato Sauce       | 2x Tomato + 1x Bowl                   | None     | 1x Tomato Sauce                  |
+| Sweet Berry Cookie | 1x Dough + 1x Sweet Berries           | Heated   | 8x Sweet Berry Cookie            |
+| Honey Cookie       | 1x Dough + 1x Honey Bottle            | Heated   | 8x Honey Cookie                  |
 
 #### Create Cutting Recipes _(mechanical saw)_
 

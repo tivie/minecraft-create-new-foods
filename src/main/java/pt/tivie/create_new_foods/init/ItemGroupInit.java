@@ -50,7 +50,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.CUPCAKE_ORANGE);
                 entries.add(ItemInit.JUICE_APPLE);
                 entries.add(ItemInit.JUICE_GLOW_BERRY);
-                entries.add(ItemInit.JUICE_MELON);
+                // JUICE_MELON removed — farmersdelight:melon_juice used instead
                 entries.add(ItemInit.JUICE_PUMPKIN);
                 entries.add(ItemInit.JUICE_SWEETBERRY);
                 entries.add(ItemInit.JUICE_ORANGE);

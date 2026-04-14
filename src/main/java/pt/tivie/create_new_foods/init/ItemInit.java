@@ -100,7 +100,8 @@ public class ItemInit {
     // Juice
     public static final Item JUICE_APPLE = registerItem("juice_apple", Item::new, Juice.getJuiceApple());
     public static final Item JUICE_GLOW_BERRY = registerItem("juice_glow_berry", Item::new, Juice.getJuiceGlowBerry());
-    public static final Item JUICE_MELON = registerItem("juice_melon", Item::new, Juice.getJuiceMelon());
+    // JUICE_MELON unregistered — farmersdelight:melon_juice is used instead to avoid duplication
+    // public static final Item JUICE_MELON = registerItem("juice_melon", Item::new, Juice.getJuiceMelon());
     public static final Item JUICE_PUMPKIN = registerItem("juice_pumpkin", Item::new, Juice.getJuicePumpkin());
     public static final Item JUICE_SWEETBERRY = registerItem("juice_sweetberry", Item::new, Juice.getJuiceSweetberry());
     public static final Item JUICE_ORANGE = registerItem("juice_orange", Item::new, Juice.getJuiceOrange());

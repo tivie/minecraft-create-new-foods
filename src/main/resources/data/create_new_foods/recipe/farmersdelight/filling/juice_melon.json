@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "farmersdelight"
+      ]
+    }
+  ],
   "type": "create:filling",
   "ingredient": "minecraft:potion",
   "fluid_ingredient": {
@@ -7,6 +15,6 @@
     "fluid_tag": "#create_new_foods:melon"
   },
   "result": {
-    "id": "create_new_foods:juice_melon"
+    "id": "farmersdelight:melon_juice"
   }
 }
