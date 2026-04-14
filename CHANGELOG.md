@@ -1,3 +1,13 @@
+## 1.1.0
+
+### Features
+- **cookies** add mixing recipes for vanilla cookies and farmer's delight cookies
+### Bug Fixes
+- **melon juice** remove duplicate item melon juice.
+### Chores
+- minor refactoring of code
+
+
 ## 1.0.5
 
 ### Features
