@@ -16,9 +16,7 @@ public class FarmersDelightCompat {
     public static void load() {
         if (!FabricLoader.getInstance().isModLoaded("farmersdelight")) return;
 
-        DefaultItemComponentEvents.MODIFY.register(context -> {
-            apply(context, "melon_juice", FlavoredFood.MELON);
-        });
+        DefaultItemComponentEvents.MODIFY.register(context -> apply(context, "melon_juice", FlavoredFood.MELON));
     }
 
     private static void apply(DefaultItemComponentEvents.ModifyContext context,
